@@ -1,0 +1,59 @@
+{% extends 'frontend/main.html' %} {% load static %} {% block title %}Checkout{% endblock %} {% block content %}
+<div class="container">
+    <h1>Checkout</h1>
+    <p>Cake Price: {{ request.GET.cake_price }}</p>
+
+    <div>
+        <h2>Cart Summary:</h2>
+        <ul>
+            <li>Cake Name: {{ cake_name }}</li>
+            <li>Size: {{ selected_size }}</li>
+            <li>Price: {{ cake_price }}</li>
+        </ul>
+        <p>Total Amount: {{ total_amount }}</p>
+    </div>
+
+    <!-- Button to trigger the modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paymentModal">
+        Payment
+    </button>
+</div>
+
+<!-- Bootstrap Modal -->
+<div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="paymentModalLabel">Payment</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Add your payment form or payment gateway integration here -->
+                <!-- For example, a simple payment form -->
+                <form>
+                    <!-- Payment form fields -->
+                    <div class="mb-3">
+                        <h3>For Bank transfer</h3>
+                        <p>Account Title: Rida Rana</p>
+                        <p>Bank name: Allied Bank Limited</p>
+                        <p>accountNo.# 0765 0010 0848 8083 0010</p>
+                    </div>
+                    <div class="mb-3">
+                        <h3>For Jazz Cash transfer</h3>
+                        <p>Account Title: Rida Rana</p>
+                        <p>accountNo.# 0309 4817724</p>
+                    </div>
+                    <h3>Please Share a payment ScreenShot on whtsapp 0329 0888555</h3>
+                    <p>Our team will consirm the order and contact to you soon</p>
+                    <!-- Other payment form fields -->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Pay Now</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

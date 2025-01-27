@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bar Chart Example</title>
+
+  <style>
+    body {
+      background: #1D1F20;
+      padding: 16px;
+    }
+
+    .chart-container {
+      position: relative;
+      max-width: 800px;
+      margin: auto;
+    }
+  </style>
+
+  <!-- Include Chart.js library from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="chart-container">
+    <canvas id="chart_0"></canvas>
+  </div>
+
+  <script>
+    // JavaScript code for creating a bar chart
+    var data = {
+      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+      datasets: [{
+        label: "Dataset #1",
+        backgroundColor: "rgba(255,99,132,0.2)",
+        borderColor: "rgba(255,99,132,1)",
+        borderWidth: 2,
+        hoverBackgroundColor: "rgba(255,99,132,0.4)",
+        hoverBorderColor: "rgba(255,99,132,1)",
+        data: [65, 59, 20, 81, 56, 55, 40],
+      }]
+    };
+
+    var option = {
+      scales: {
+        yAxes: [{
+          stacked: true,
+          gridLines: {
+            display: true,
+            color: "rgba(255,99,132,0.2)"
+          }
+        }],
+        xAxes: [{
+          gridLines: {
+            display: false
+          }
+        }]
+      }
+    };
+
+    // Initialize the bar chart
+    var ctx = document.getElementById('chart_0').getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'bar',
+      options: option,
+      data: data
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+{% extends 'base/main.html' %} {%load static%} {% block title %}Dashboard{% endblock %} {% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    
+
+<!-- <h1>this is dashboard page</h1> -->
+<div class="sidenav">
+    <div class="text-center">
+        <img src="path_to_profile_picture.jpg" alt="Profile Picture" class="img-fluid rounded-circle" style="width: 80px; height: 80px;">
+        <p class="mt-2">Username</p>
+    </div>
+</div>
+
+<!-- Content Area -->
+<div class="content" >
+    <h2>Sales</h2>
+
+    <!-- Monthly and Yearly Sales -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Monthly Sales</h5>
+                    <!-- Add your monthly sales content here -->
+                    <div class="chart-container"  style="height: 300px; background-color: lightgray;" >
+                        <canvas id="monthlySalesChart" ></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Yearly Sales</h5>
+                    <!-- Add your yearly sales content here -->
+                    <div id="yearlySalesChart" style="width: 400px; height: 200px;"></div>
+                    <h1>yearly sales graph here</h1>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registered and Unregistered Customers -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Registered Customers</h5>
+                    <!-- Add your registered customers content here -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Contact Number</th>
+                                <th>City</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Doe</td>
+                                <td>john@example.com</td>
+                                <td>123-456-7890</td>
+                                <td>New York</td>
+                            </tr>
+                            <!-- Add more rows with dummy data as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Unregistered Customers</h5>
+                    <!-- Add your unregistered customers content here -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Contact Number</th>
+                                <th>City</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Jane Doe</td>
+                                <td>jane@example.com</td>
+                                <td>987-654-3210</td>
+                                <td>Los Angeles</td>
+                            </tr>
+                            <!-- Add more rows with dummy data as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sales Details -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Sales Details</h5>
+            <!-- Add your sales details content here -->
+
+            <!-- Sales Table -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Week</th>
+                        <th>Profit</th>
+                        <th>Revenue</th>
+                        <th>Expenses</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Week 1</td>
+                        <td>Rs1000</td>
+                        <td>Rs5000</td>
+                        <td>Rs4000</td>
+                    </tr>
+                    <!-- Add more rows with dummy data as needed -->
+                </tbody>
+            </table>
+
+            <!-- Sales Calendar -->
+            <div id="salesCalendar" class="p-3">
+                <!-- Add your calendar content here -->
+                <!-- You can use a third-party library like FullCalendar or implement a simple one with HTML and JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Sales Details -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Selling Item Details</h5>
+            <!-- Add your selling item details content here -->
+
+            <!-- Most and Least Selling Items Table -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Week</th>
+                        <th>Quantity Sold</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Most Selling Item -->
+                    <tr>
+                        <td>Best-Selling Item</td>
+                        <td>Week 1</td>
+                        <td>50</td>
+                    </tr>
+
+                    <!-- Least Selling Item -->
+                    <tr>
+                        <td>Least-Selling Item</td>
+                        <td>Week 1</td>
+                        <td>5</td>
+                    </tr>
+
+                    <!-- Add more rows with dummy data as needed -->
+                </tbody>
+            </table>
+
+            <!-- Sales Calendar -->
+            <div id="salesCalendar" class="p-3">
+                <!-- Add your calendar content here -->
+                <!-- You can use a third-party library like FullCalendar or implement a simple one with HTML and JavaScript -->
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+{% endblock %}
+{% block extrablock %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // JavaScript code for creating a bar chart
+        var data = {
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+            datasets: [{
+                label: "Dataset #1",
+                backgroundColor: "rgba(255,99,132,0.2)",
+                borderColor: "rgba(255,99,132,1)",
+                borderWidth: 2,
+                hoverBackgroundColor: "rgba(255,99,132,0.4)",
+                hoverBorderColor: "rgba(255,99,132,1)",
+                data: [65, 59, 20, 81, 56, 55, 40],
+            }]
+        };
+
+        var option = {
+            scales: {
+                yAxes: [{
+                    stacked: true,
+                    gridLines: {
+                        display: true,
+                        color: "rgba(255,99,132,0.2)"
+                    }
+                }],
+                xAxes: [{
+                    gridLines: {
+                        display: false
+                    }
+                }]
+            }
+        };
+
+        // Initialize the bar chart
+        var ctxMonthlySales = document.getElementById('monthlySalesChart').getContext('2d');
+        var monthlySalesChart = new Chart(ctxMonthlySales, {
+            type: 'bar',
+            options: option,
+            data: data
+        });
+    });
+</script>
+{% endblock %}

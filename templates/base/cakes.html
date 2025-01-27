@@ -1,0 +1,32 @@
+<!-- base/cakes.html -->
+{% extends 'base/main.html' %}
+{% load static %}
+{% block title %}Cakes Page{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        {% for product in products %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-img-top">
+                        {% if product.imageURL %}
+                            <img src="{{ product.imageURL }}" class="img-fluid" alt="{{ product.name }}" style="width: 100%;">
+                        {% else %}
+                            <img src="{% static 'images/Image_not_available.png' %}" class="img-fluid" alt="{{ product.name }}">
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title"><strong>{{ product.name }}</strong></h6>
+                        <hr>
+                        <p class="card-text">Price: Rs. {{ product.price }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <button data-product="{{ product.id }}" data-actions="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+                        <a href="#" class="btn btn-outline-success">View</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,189 @@
+{% extends 'frontend/main.html' %} {% load static %} {% block title %}Cart{% endblock %} {% block content %}
+<link rel="stylesheet" href="{% static 'css/frontend/css/cart.css' %}">
+<div class="container" style="background-color:#c38edb11; border-radius:10px;">
+    <div class="row cart-main-content">
+        <div class="breadcrum">
+            <p>home/product/id123</p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <div class="cart-img">
+
+                <img src="../../static/images/cake1.jpg" alt="">
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-12">
+            <div class="information-top">
+                <div class="top-left">
+                    <h1 itemprop="name" class="title">{{ cake_name }}</h1>
+
+                    <div class="product-price">
+                        <meta itemprop="priceCurrency" content="PKR">
+                        <meta itemprop="price" content="{{ cake_price }}">
+                        <h2 class="price" id="price-preview"><span class="money">Rs.{{ cake_price }}</span></h2>
+                    </div>
+                </div>
+
+
+                <!-- <div class="top-right">
+                    <div class="rating-content">
+                        <div class="rating-description">
+                            <span class="shopify-product-reviews-badge" data-id="1471374753858"></span>
+                        </div>
+                    </div>
+                </div> -->
+
+            </div>
+            <div class="description">
+                {{cake_desc}}
+            </div>
+            <div class="size">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Weight in Pounds</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <input type="checkbox" id="size-2lb">
+                                        <label for="size-2lb">2</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input type="checkbox" id="size-3lb">
+                                        <label for="size-3lb">3</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input type="checkbox" id="size-4lb">
+                                        <label for="size-4lb">4</label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <input type="checkbox" id="size-6lb">
+                                        <label for="size-6lb">6</label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input type="checkbox" id="size-8lb">
+                                        <label for="size-8lb">8</label>
+                                    </li>
+                                    <li class="list-group-item" id="custom-cake-size">
+                                        <input type="text" id="custom-size" placeholder="Custom Size">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="delivery-time">
+                <label for="delivery-time">Select Delivery Time:</label>
+                <select id="delivery-time" name="delivery-time">
+                    <option value="12:00 AM">12:00 AM</option>
+                    <option value="1:00 AM">1:00 AM</option>
+                    <option value="2:00 AM">2:00 AM</option>
+                    <option value="3:00 AM">3:00 AM</option>
+                    <option value="4:00 AM">4:00 AM</option>
+                    <option value="5:00 AM">5:00 AM</option>
+                    <option value="6:00 AM">6:00 AM</option>
+                    <option value="7:00 AM">7:00 AM</option>
+                    <option value="8:00 AM">8:00 AM</option>
+                    <option value="9:00 AM">9:00 AM</option>
+                    <option value="10:00 AM">10:00 AM</option>
+                    <option value="11:00 AM">11:00 AM</option>
+                    <option value="12:00 PM">12:00 PM</option>
+                    <option value="1:00 PM">1:00 PM</option>
+                    <option value="2:00 PM">2:00 PM</option>
+                    <option value="3:00 PM">3:00 PM</option>
+                    <option value="4:00 PM">4:00 PM</option>
+                    <option value="5:00 PM">5:00 PM</option>
+                    <option value="6:00 PM">6:00 PM</option>
+                    <option value="7:00 PM">7:00 PM</option>
+                    <option value="8:00 PM">8:00 PM</option>
+                    <option value="9:00 PM">9:00 PM</option>
+                    <option value="10:00 PM">10:00 PM</option>
+                    <!-- Add more options for each hour -->
+                    <option value="11:00 PM">11:00 PM</option>
+                    <option value="12:00 PM">12:00 PM</option>
+                </select>
+            </div>
+
+            <div class="text-on-cake">
+                <h4>Text on cake </h4>
+                <label for="cake-message">Write text here:</label> <br>
+                <input type="text" id="cake-message" name="cake-message" class="input-style" placeholder="Type your message here" maxlength="100">
+            </div>
+            {% if flavor %}
+            <div class="flavors">
+                <h4>Choose Flavor:</h4>
+                <label for="flavor-select">Select Flavor:</label>
+                <select id="flavor-select" name="flavor-select" class="select-style" required>
+                    {% for flavors in flavor %}
+                    <option value="{{ flavors.id }}">{{ flavors.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            {% endif %}
+
+
+            <div class="action-buttons">
+                <!-- Add to Cart button with Font Awesome icon -->
+                <!-- <a href="{% url 'checkout' %}?cake_name={{ cake_name }}&cake_price={{ cake_price }}&cake_size={{ selected_size }}" class="btn btn-primary">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </a> -->
+
+                <a href="#" id="add-to-cart-btn" class="btn btn-primary">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </a>
+
+
+
+
+                <!-- Heart icon for Add to Favorites with Font Awesome icon -->
+                <button type="button" id="add-to-favorites">
+                    <i class="fas fa-heart"></i> Add to Favorites
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // JavaScript to update the URL parameters based on user selection
+    const addToCartBtn = document.getElementById('add-to-cart-btn');
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const customSizeInput = document.getElementById('custom-size');
+
+    function updateURL() {
+        let selectedSize = '';
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                selectedSize = checkbox.nextElementSibling.textContent.trim();
+            }
+        });
+        if (customSizeInput.value.trim() !== '') {
+            selectedSize = customSizeInput.value.trim();
+        }
+
+        let cakeName = '{{ cake_name }}';
+        let cakePrice = '{{ cake_price }}';
+        let url = "{% url 'checkout' %}?cake_name=" + encodeURIComponent(cakeName) + "&cake_price=" + encodeURIComponent(cakePrice) + "&cake_size=" + encodeURIComponent(selectedSize);
+        addToCartBtn.href = url;
+    }
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            // Uncheck all other checkboxes when one is checked
+            checkboxes.forEach(cb => {
+                if (cb !== checkbox) {
+                    cb.checked = false;
+                }
+            });
+            updateURL();
+        });
+    });
+
+    customSizeInput.addEventListener('input', updateURL);
+</script>
+{% endblock %}

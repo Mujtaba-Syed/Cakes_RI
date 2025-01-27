@@ -1,0 +1,47 @@
+{% extends 'frontend/main.html' %} {% load static %} {% block title %}Services{% endblock %} {% block content %}
+
+
+<!-- Page Header Start -->
+<div class="container-fluid bg-dark bg-img p-5 mb-5">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="display-4 text-uppercase text-white">Services</h1>
+            <a href="{% url 'home' %}">Home</a>
+            <i class="far fa-square text-primary px-2"></i>
+            <a href="{% url 'services' %}">Services</a>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Service Start -->
+<div class="container-fluid service position-relative px-5" style="margin-top: 90px;">
+    <div class="container">
+        <div class="row g-5">
+            {% for ser in services %}
+            <div class="col-lg-4 col-md-6">
+                <div class="bg-primary border-inner text-center text-white p-5">
+                    <div class="service-img">
+                        <!-- Render the image using appropriate HTML tag -->
+                        <img style="height: 200px; width:300px" class="pb-3" src="{{ ser.image.url }}" alt="{{ ser.name }}">
+                    </div>
+                    <h4 class="text-uppercase mb-3">{{ ser.name }}</h4>
+                    <p>{{ ser.description }}</p>
+                    <a class="text-uppercase text-dark" href="#">Read More <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="col-lg-12 col-md-6 text-center">
+                <h1 class="text-uppercase text-light mb-4">30% Discount For This Summer</h1>
+                <a href="" class="btn btn-primary border-inner py-3 px-5">Order Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Service Start -->
+
+
+
+
+
+{% endblock%}

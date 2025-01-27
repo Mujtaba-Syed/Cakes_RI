@@ -1,0 +1,14 @@
+{%extends 'base/main.html'%}
+{% load static %}
+{% block title%}SignUp PAge{% endblock %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/registration.css' %}">
+<form method="post" action="{% url 'signup' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% if form.errors %}
+    <p style="color: red;">Please correct the errors..</p>
+    {% endif %}
+    <button type="submit">Register</button>
+</form>
+{% endblock %}

@@ -1,0 +1,133 @@
+{% extends 'frontend/main.html' %} {% load static %} {% comment %} {% block title %}Menu and Pricing{% endblock %} {% endcomment %} {% block content %}
+
+<link rel="stylesheet" href="{% static 'css/frontend/css/menu.css' %}">
+
+<!-- Page Headerd -->
+
+
+<!-- Products Start -->
+<div class="container-fluid about py-5">
+    <div class="container">
+        <div class="section-title position-relative text-center mx-auto mb-5 pb-3" style="max-width: 600px;">
+            <h2 class="text-primary font-secondary">Menu & Pricing</h2>
+            <h1 class="display-4 text-uppercase">Explore Our Cakes</h1>
+        </div>
+        <div class="tab-class text-center">
+            <ul class="nav nav-pills d-inline-flex justify-content-center bg-dark text-uppercase border-inner p-4 mb-5">
+                <li class="nav-item">
+                    <a class="nav-link text-white active" data-bs-toggle="pill" href="#tab-1">Birthday</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" data-bs-toggle="pill" href="#tab-2">Cupcakes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" data-bs-toggle="pill" href="#tab-3">Custom</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="tab-1" class="tab-pane fade show p-0 active">
+                    <div class="row g-3">
+                        {% for cake in birthday_cakes %}
+                        <div class="col-lg-3 p-3">
+                            <div class="card">
+                                <div class="product-image">
+                                    <img src="{{ cake.image.url }}" class="card-img-top" alt="{{ cake.name }}">
+
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ cake.name }}</h5>
+                                    <p class="card-text">{{ cake.description }}</p>
+                                    <p class="card-text">(Starting from) Rs {{ cake.price }} </p>
+                                    <form method="post" action="{% url 'cart' %}">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="cake_id" value="{{ cake.id }}">
+                                        <input type="hidden" name="cake_name" value="{{ cake.name }}">
+                                        <input type="hidden" name="cake_price" value="{{ cake.price }}">
+                                        <input type="hidden" name="cake_desc" value="{{ cake.description }}">
+                                        <input type="hidden" name="cake_type" value="Birthday">
+                                        <!-- <button type="submit" class="btn btn-primary">Add to Cart</button> -->
+                                        <a href="{% url 'cart' %}?cake_name={{ cake.name }}&cake_price={{ cake.price }}&cake_desc={{ cake.description }}&cake_type=Birthday" class="btn btn-primary">Add to Cart</a>
+                                    </form>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div id="tab-2" class="tab-pane fade show p-0">
+                    <div class="row g-3">
+                        {% for cake in cup_cakes %}
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="product-image">
+                                    <img src="{{ cake.image.url }}" class="card-img-top" alt="{{ cake.name }}">
+
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ cake.name }}</h5>
+                                    <p class="card-text">{{ cake.description }}</p>
+                                    <p class="card-text">(Starting from) Rs {{ cake.price }} </p>
+                                    <a href="{% url 'cart' %}?cake_name={{ cake.name }}&cake_price={{ cake.price }}&cake_desc={{ cake.description }}&cake_type=Cupcakes" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div id="tab-3" class="tab-pane fade show p-0">
+                    <div class="row g-3">
+                        {% for cake in custom_cakes %}
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="product-image">
+                                    <img src="{{ cake.image.url }}" class="card-img-top" alt="{{ cake.name }}">
+
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ cake.name }}</h5>
+                                    <p class="card-text">{{ cake.description }}</p>
+                                    <p class="card-text">(Starting from) Rs {{ cake.price }} </p>
+                                    <a href="{% url 'cart' %}?cake_name={{ cake.name }}&cake_price={{ cake.price }}&cake_desc={{ cake.description }}&cake_type=Custom" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Products End -->
+
+
+<!-- Offer Start -->
+<div class="container-fluid bg-offer my-5 py-5">
+    <div class="container py-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-7 text-center">
+                <div class="section-title position-relative text-center mx-auto mb-4 pb-3" style="max-width: 600px;">
+                    <h2 class="text-primary font-secondary">Special Kombo Pack</h2>
+                    <h1 class="display-4 text-uppercase text-white">Super Soft Cakes</h1>
+                </div>
+                <p class="text-white mb-4">Welcome to the sweet side of life with Cakes by Rimi! As we step into a new moment, anticipate the joy of savoring our meticulously crafted cakes, each bite a testament to passion and perfection. From birthdays to weddings, let Cakes by
+                    Rimi be the sweet melody in your celebrations. Keep an eye out for exclusive offers and exciting updates. Thank you for choosing Cakes by Rimi—where every moment becomes a delicious memory!</p>
+                <a href="" class="btn btn-primary border-inner py-3 px-5 me-3">Shop Now</a>
+                <a href="" class="btn btn-dark border-inner py-3 px-5">Read More</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Offer End -->
+
+
+
+{% endblock%}
