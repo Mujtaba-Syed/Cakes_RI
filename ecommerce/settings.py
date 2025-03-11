@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'seller.apps.SellerConfig',
     'frontend.apps.FrontendConfig',
     'ckeditor',
+    'review.apps.ReviewConfig',
+    'order.apps.OrderConfig',
 ]
 
 MIDDLEWARE = [

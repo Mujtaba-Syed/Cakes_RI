@@ -11,7 +11,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import SignUpForm
 from django.contrib.auth.decorators import login_required
 from django.urls import resolve
-
+from order.models import Order, OrderItem, Shipping_Address 
 
 
 # Create your views here.
