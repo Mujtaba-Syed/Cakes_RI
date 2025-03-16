@@ -24,6 +24,7 @@ urlpatterns = [
     path("base/",include('base.urls') ),
     # path("order/",include('order.urls') ),
     path("review/",include('review.urls') ),
+    path('product/', include('product.urls')),
     # path("",include('seller.urls') ),
     path("",include('frontend.urls') ),
 ]

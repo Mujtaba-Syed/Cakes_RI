@@ -91,14 +91,17 @@ class Product(models.Model):
         ('Cakes', 'Cakes'),
         ('Cupcakes', 'Cupcakes'),
         ('Bouquets', 'Bouquets'),
-        ('Donuts', 'Donuts'),
-        ('Brownies', 'Brownies'),
+        ('Customs', 'Customs'),
     ]
     name=models.CharField(max_length=200)
+    description= models.CharField(max_length=200)
     price=models.DecimalField(decimal_places=2, max_digits=9)
-    digital=models.BooleanField(default=False, null=True, blank=True)  # buy default every item is physical  
     image=models.ImageField(null=True, blank=True)
-    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='Cakes')  # Add this line
+    slug= models.SlugField()
+    updated_at= models.DateTimeField(auto_now=True)
+    is_active= models.BooleanField(default=True)
+    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='Cakes')
+    
 
     
     def __str__(self):
