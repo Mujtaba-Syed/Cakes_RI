@@ -60,208 +60,14 @@
 
 
 <!-- About Start -->
-<div class="container-fluid pt-5">
-    <div class="container">
-        <div class="section-title position-relative text-center mx-auto mb-5 pb-3" style="max-width: 600px;">
-            <h2 class="text-primary font-secondary">About Us</h2>
-            <h1 class="display-4 text-uppercase">Welcome To CakeZone</h1>
-        </div>
-        <div class="row gx-5">
-            <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 400px;">
-                <div class="position-relative h-100">
-                    <img class="position-absolute w-100 h-100" src="../../static/images/frontend/img/about.jpg" style="object-fit: cover;">
-                </div>
-            </div>
-            <div class="col-lg-6 pb-5">
-                <h4 class="mb-4"> Cakes by Rimi - Unforgettable Moments in Every Bite</h4>
-                <p class="mb-5">Welcome to Cakes by Rimi, where we infuse joy into every celebration through our delectable creations. Our journey began with a passion for baking, evolving into a dedication to craft cakes that become the highlight of your special moments.
-                    From birthdays to weddings, our expert bakers ensure each cake is a unique masterpiece, blending creativity and quality ingredients. Whether it's a classic birthday treat or a themed masterpiece, at Cakes by Rimi, we are committed
-                    to making every bite unforgettable. Join us in savoring the sweetness of your cherished memories.</p>
-                <div class="row g-5">
-                    <div class="col-sm-6">
-                        <div class="d-flex align-items-center justify-content-center bg-primary border-inner mb-4" style="width: 90px; height: 90px;">
-                            <i class="fa fa-heartbeat fa-2x text-white"></i>
-                        </div>
-                        <h4 class="text-uppercase">100% Healthy</h4>
-                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="d-flex align-items-center justify-content-center bg-primary border-inner mb-4" style="width: 90px; height: 90px;">
-                            <i class="fa fa-award fa-2x text-white"></i>
-                        </div>
-                        <h4 class="text-uppercase">Award Winning</h4>
-                        <p class="mb-0">Labore justo vero ipsum sit clita erat lorem magna clita nonumy dolor magna dolor vero</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{% include 'frontend/about_partial.html' %}
 <!-- About End -->
 
 
-<!-- Facts Start -->
-<div class="container-fluid bg-img py-5 mb-5">
-    <div class="container py-5">
-        <div class="row gx-5 gy-4">
-            <div class="col-lg-3 col-md-6">
-                <div class="d-flex">
-                    <div class="bg-primary border-inner d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                        <i class="fa fa-star text-white"></i>
-                    </div>
-                    <div class="ps-4">
-                        <h6 class="text-primary text-uppercase">Our Experience</h6>
-                        <h1 class="display-5 text-white mb-0" data-toggle="counter-up">1900</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="d-flex">
-                    <div class="bg-primary border-inner d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                        <i class="fa fa-users text-white"></i>
-                    </div>
-                    <div class="ps-4">
-                        <h6 class="text-primary text-uppercase">Cake Specialist</h6>
-                        <h1 class="display-5 text-white mb-0" data-toggle="counter-up">772</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="d-flex">
-                    <div class="bg-primary border-inner d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                        <i class="fa fa-check text-white"></i>
-                    </div>
-                    <div class="ps-4">
-                        <h6 class="text-primary text-uppercase">Complete Project</h6>
-                        <h1 class="display-5 text-white mb-0" data-toggle="counter-up">2409</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="d-flex">
-                    <div class="bg-primary border-inner d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                        <i class="fa fa-mug-hot text-white"></i>
-                    </div>
-                    <div class="ps-4">
-                        <h6 class="text-primary text-uppercase">Happy Clients</h6>
-                        <h1 class="display-5 text-white mb-0" data-toggle="counter-up">2500</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Facts End -->
 
 <!-- Products Start -->
-{% comment %} {% include 'frontend/menu.html'%} {% endcomment %}
-<div class="container-fluid about py-5">
-    <div class="container">
-        <div class="section-title position-relative text-center mx-auto mb-5 pb-3" style="max-width: 600px;">
-            <h2 class="text-primary font-secondary">Menu & Pricing</h2>
-            <h1 class="display-4 text-uppercase">Explore Our Cakes</h1>
-        </div>
-        <div class="tab-class text-center">
-            <ul class="nav nav-pills d-inline-flex justify-content-center bg-dark text-uppercase border-inner p-4 mb-5">
-                <li class="nav-item">
-                    <a class="nav-link text-white active" data-bs-toggle="pill" href="#tab-1">Birthday</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" data-bs-toggle="pill" href="#tab-2">Cupcakes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" data-bs-toggle="pill" href="#tab-3">Custom</a>
-                </li>
-            </ul>
+{% include 'frontend/menu_partial.html' %}
 
-            <div class="tab-content">
-                <div id="tab-1" class="tab-pane fade show p-0 active">
-                    <div class="row g-3">
-                        {% for cake in birthday_cakes %}
-                        <div class="col-lg-3 p-3">
-                            <div class="card">
-                                <div class="product-image">
-                                    <img src="{{ cake.image.url }}" class="card-img-top" alt="{{ cake.name }}">
-
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ cake.name }}</h5>
-                                    <p class="card-text">{{ cake.description }}</p>
-                                    <p class="card-text">(Starting from) Rs {{ cake.price }} </p>
-                                    <a href="{% url 'cart'%}" class="btn btn-primary">Add to Cart</a>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-
-                <div id="tab-2" class="tab-pane fade show p-0">
-                    <div class="row g-3">
-                        {% for cake in cup_cakes %}
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="product-image">
-                                    <img src="{{ cake.image.url }}" class="card-img-top" alt="{{ cake.name }}">
-
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ cake.name }}</h5>
-                                    <p class="card-text">{{ cake.description }}</p>
-                                    <p class="card-text">(Starting from) Rs {{ cake.price }} </p>
-                                    <a href="{% url 'cart'%}" class="btn btn-primary">Add to Cart</a>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-
-                <div id="tab-3" class="tab-pane fade show p-0">
-                    <div class="row g-3">
-                        {% for cake in custom_cakes %}
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="product-image">
-                                    <img src="{{ cake.image.url }}" class="card-img-top" alt="{{ cake.name }}">
-
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ cake.name }}</h5>
-                                    <p class="card-text">{{ cake.description }}</p>
-                                    <p class="card-text">(Starting from) Rs {{ cake.price }} </p>
-                                    <a href="{% url 'cart'%}" class="btn btn-primary">Add to Cart</a>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Products End -->
-
-
-<!-- Offer Start -->
-<div class="container-fluid bg-offer my-5 py-5">
-    <div class="container py-5">
-        <div class="row gx-5 justify-content-center">
-            <div class="col-lg-7 text-center">
-                <div class="section-title position-relative text-center mx-auto mb-4 pb-3" style="max-width: 600px;">
-                    <h2 class="text-primary font-secondary">Special Kombo Pack</h2>
-                    <h1 class="display-4 text-uppercase text-white">Super Soft Cakes</h1>
-                </div>
-                <p class="text-white mb-4">Welcome to the sweet side of life with Cakes by Rimi! As we step into a new moment, anticipate the joy of savoring our meticulously crafted cakes, each bite a testament to passion and perfection. From birthdays to weddings, let Cakes by
-                    Rimi be the sweet melody in your celebrations. Keep an eye out for exclusive offers and exciting updates. Thank you for choosing Cakes by Rimi—where every moment becomes a delicious memory!</p>
-                <a href="" class="btn btn-primary border-inner py-3 px-5 me-3">Shop Now</a>
-                <a href="" class="btn btn-dark border-inner py-3 px-5">Read More</a>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- Products End -->
 
 
@@ -371,171 +177,44 @@
 <!-- Team End -->
 
 
-<!-- Offer Start -->
-<div class="container-fluid bg-offer my-5 py-5">
-    <div class="container py-5">
-        <div class="row gx-5 justify-content-center">
-            <div class="col-lg-7 text-center">
-                <div class="section-title position-relative text-center mx-auto mb-4 pb-3" style="max-width: 600px;">
-                    <h2 class="text-primary font-secondary">Special Kombo Pack</h2>
-                    <h1 class="display-4 text-uppercase text-white">Super Softy Cakes</h1>
-                </div>
-                <p class="text-white mb-4">Eirmod sed tempor lorem ut dolores sit kasd ipsum. Dolor ea et dolore et at sea ea at dolor justo ipsum duo rebum sea. Eos vero eos vero ea et dolore eirmod et. Dolores diam duo lorem. Elitr ut dolores magna sit. Sea dolore sed et.</p>
-                <a href="" class="btn btn-primary border-inner py-3 px-5 me-3">Shop Now</a>
-                <a href="" class="btn btn-dark border-inner py-3 px-5">Read More</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Offer End -->
 
 
 <!-- Testimonial Start -->
-
 <div class="container-fluid py-5">
     <div class="container">
         <div class="section-title position-relative text-center mx-auto mb-5 pb-3" style="max-width: 600px;">
             <h2 class="text-primary font-secondary">Testimonial</h2>
             <h1 class="display-4 text-uppercase">Our Clients Say!!!</h1>
         </div>
-        <div class="owl-carousel testimonial-carousel owl-loaded owl-drag">
 
-
-
-
-            <div class="owl-stage-outer">
-                <div class="owl-stage" style="transition: all 0s ease 0s; width: 2964px; transform: translate3d(-926px, 0px, 0px);">
-                    <div class="owl-item cloned" style="width: 325.5px; margin-right: 45px;">
-                        <div class="testimonial-item bg-dark text-white border-inner p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <img class="img-fluid flex-shrink-0" src="../../../images/frontend/img/testimonial-1.jpg" style="width: 60px; height: 60px;">
-                                <div class="ps-3">
-                                    <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
-                                    <span>Profession</span>
-                                </div>
-                            </div>
-                            <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                            </p>
-                        </div>
-                    </div>
-                    <div class="owl-item cloned" style="width: 325.5px; margin-right: 45px;">
-                        <div class="testimonial-item bg-dark text-white border-inner p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <img class="img-fluid flex-shrink-0" src="../../../images/frontend/img/testimonial-2.jpg" style="width: 60px; height: 60px;">
-                                <div class="ps-3">
-                                    <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
-                                    <span>Profession</span>
-                                </div>
-                            </div>
-                            <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                            </p>
-                        </div>
-                    </div>
-                    <div class="owl-item" style="width: 325.5px; margin-right: 45px;">
-                        <div class="testimonial-item bg-dark text-white border-inner p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <img class="img-fluid flex-shrink-0" src="../../../images/frontend/img/testimonial-3.jpg" style="width: 60px; height: 60px;">
-                                <div class="ps-3">
-                                    <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
-                                    <span>Profession</span>
-                                </div>
-                            </div>
-                            <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                            </p>
-                        </div>
-                    </div>
-                    <div class="owl-item active center" style="width: 325.5px; margin-right: 45px;">
-                        <div class="testimonial-item bg-dark text-white border-inner p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <img class="img-fluid flex-shrink-0" src="../../../images/frontend/img/testimonial-4.jpg" style="width: 60px; height: 60px;">
-                                <div class="ps-3">
-                                    <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
-                                    <span>Profession</span>
-                                </div>
-                            </div>
-                            <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                            </p>
-                        </div>
-                    </div>
-                    <div class="owl-item active" style="width: 325.5px; margin-right: 45px;">
-                        <div class="testimonial-item bg-dark text-white border-inner p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <img class="img-fluid flex-shrink-0" src="../../../images/frontend/img/testimonial-1.jpg" style="width: 60px; height: 60px;">
-                                <div class="ps-3">
-                                    <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
-                                    <span>Profession</span>
-                                </div>
-                            </div>
-                            <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                            </p>
-                        </div>
-                    </div>
-                    <div class="owl-item" style="width: 325.5px; margin-right: 45px;">
-                        <div class="testimonial-item bg-dark text-white border-inner p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <img class="img-fluid flex-shrink-0" src="../../../images/frontend/img/testimonial-2.jpg" style="width: 60px; height: 60px;">
-                                <div class="ps-3">
-                                    <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
-                                    <span>Profession</span>
-                                </div>
-                            </div>
-                            <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                            </p>
-                        </div>
-                    </div>
-                    <div class="owl-item cloned" style="width: 325.5px; margin-right: 45px;">
-                        <div class="testimonial-item bg-dark text-white border-inner p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <img class="img-fluid flex-shrink-0" src="../../../images/frontend/img/testimonial-3.jpg" style="width: 60px; height: 60px;">
-                                <div class="ps-3">
-                                    <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
-                                    <span>Profession</span>
-                                </div>
-                            </div>
-                            <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                            </p>
-                        </div>
-                    </div>
-                    <div class="owl-item cloned" style="width: 325.5px; margin-right: 45px;">
-                        <div class="testimonial-item bg-dark text-white border-inner p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <img class="img-fluid flex-shrink-0" src="../../../images/frontend/img/testimonial-4.jpg" style="width: 60px; height: 60px;">
-                                <div class="ps-3">
-                                    <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
-                                    <span>Profession</span>
-                                </div>
-                            </div>
-                            <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                            </p>
-                        </div>
-                    </div>
+        <div class="position-relative">
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner" id="testimonial-carousel">
+                    <!-- Reviews injected dynamically -->
                 </div>
             </div>
-            <div class="owl-nav disabled">
-                <div class="owl-prev">prev</div>
-                <div class="owl-next">next</div>
-            </div>
-            <div class="owl-dots">
-                <div class="owl-dot"><span></span></div>
-                <div class="owl-dot active"><span></span></div>
-                <div class="owl-dot"><span></span></div>
-                <div class="owl-dot"><span></span></div>
-            </div>
+
+            <!-- Navigation Buttons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev" style="top: 50%; transform: translateY(-50%); left: -120px;">
+                <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next" style="top: 50%; transform: translateY(-50%); right: -120px;">
+                <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </div>
 </div>
 <!-- Testimonial End -->
 
 
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="jquery.counterup.min.js"></script>
-<script>
-    $(document).ready(function(){
-        $('[data-toggle="counter-up"]').counterUp({
-            delay: 10,
-            time: 4000
-        });
-    });
-</script>
+
+<script src="{% static 'js/home.js' %}"></script>
+
 
 {% endblock%}

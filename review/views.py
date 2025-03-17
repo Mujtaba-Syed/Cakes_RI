@@ -1,10 +1,7 @@
-from django.shortcuts import render
-from .serializers import ReviewSerializer
+from rest_framework import generics
 from .models import Review
-from rest_framework import generics, permissions
-# Create your views here.
+from .serializers import ReviewSerializer
 
-class ReviewListCreateView(generics.ListCreateAPIView):
-    permission_classes = [permissions.AllowAny]
-    queryset = Review.objects.all()
+class ReviewListView(generics.ListAPIView):
+    queryset = Review.objects.filter(is_active=True).order_by('-date')[:5]
     serializer_class = ReviewSerializer

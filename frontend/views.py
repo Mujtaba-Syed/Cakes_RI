@@ -31,6 +31,7 @@ def menu(request):
         'birthday_cakes': birthday_cakes,
         'cup_cakes': cup_cakes,
         'custom_cakes': custom_cakes,
+        'include_mode': False 
     }
     return render(request, 'frontend/menu.html', context)
 
