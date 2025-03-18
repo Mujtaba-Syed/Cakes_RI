@@ -1,5 +1,4 @@
 from django.db import models
-# from ckeditor.fields import RichTextField  # Import the RichTextField
 
 # Create your models here.
 class Flavor(models.Model):
