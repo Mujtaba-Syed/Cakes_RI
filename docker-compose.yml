@@ -10,4 +10,14 @@ services:
       - .:/app
     environment:
       - DEBUG=True
-    command: python manage.py runserver 0.0.0.0:8000
+    command: gunicorn --bind 0.0.0.0:8000 ecommerce.wsgi:application
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx_server
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/django.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - web
