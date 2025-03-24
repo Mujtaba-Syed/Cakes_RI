@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'base.apps.BaseConfig',
     'seller.apps.SellerConfig',
     'frontend.apps.FrontendConfig',
-    'ckeditor',
     'review.apps.ReviewConfig',
     'order.apps.OrderConfig',
     'product.apps.ProductConfig'
