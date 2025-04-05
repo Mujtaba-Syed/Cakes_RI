@@ -16,6 +16,5 @@ COPY .env /app/.env
 # Expose the port the app runs on
 EXPOSE 8000
 
-# Command to run the application
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
-# CMD ["gunicorn", "--bind", "0.0.0.0:8000", "ecommerce.wsgi:application"]
+# No need to run the development server, Gunicorn is used in the Docker Compose file
+# CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]  # Remove this line
