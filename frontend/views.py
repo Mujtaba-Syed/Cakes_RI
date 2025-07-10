@@ -1,68 +1,72 @@
 from django.shortcuts import render
 from .models import Cake, Services, Flavor
 from django.shortcuts import get_object_or_404, redirect
-from django.views.generic import View
+from django.views.generic import View, TemplateView, ListView
 from django.contrib import messages
 from django.core.serializers.json import DjangoJSONEncoder
 
 # Create your views here.
 
-def home(request):
-    birthday_cakes = Cake.objects.filter(type='Birthday', active=True)
-    cup_cakes = Cake.objects.filter(type='Cupcakes', active=True)
-    custom_cakes = Cake.objects.filter(type='Custom', active=True)
-    context = {
-        'birthday_cakes': birthday_cakes,
-        'cup_cakes': cup_cakes,
-        'custom_cakes': custom_cakes,
-    }
-    return render(request, 'frontend/home.html', context)
-
-def about_us(request):
-    return render(request, 'frontend/about.html')
-
-
-
-def menu(request):
-    birthday_cakes = Cake.objects.filter(type='Birthday', active=True)
-    cup_cakes= Cake.objects.filter(type='Cupcakes', active=True)
-    custom_cakes = Cake.objects.filter(type='Custom', active=True)
-    context = {
-        'birthday_cakes': birthday_cakes,
-        'cup_cakes': cup_cakes,
-        'custom_cakes': custom_cakes,
-        'include_mode': False 
-    }
-    return render(request, 'frontend/menu.html', context)
+class HomeView(TemplateView):
+    template_name = 'frontend/home.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        birthday_cakes = Cake.objects.filter(type='Birthday', active=True)
+        cup_cakes = Cake.objects.filter(type='Cupcakes', active=True)
+        custom_cakes = Cake.objects.filter(type='Custom', active=True)
+        context.update({
+            'birthday_cakes': birthday_cakes,
+            'cup_cakes': cup_cakes,
+            'custom_cakes': custom_cakes,
+        })
+        return context
 
 
-def team(request):
-    return render(request, 'frontend/team.html')
-
-def service(request):
-    services=Services.objects.filter(active=True)
-    context={
-        'services':services,
-    }
-    return render(request, 'frontend/services.html', context)
-
-def testimonial(request):
-    return render(request, 'frontend/testimonial.html')
-
-def contactUs(request):
-    return render(request, 'frontend/contact.html')
+class AboutUsView(TemplateView):
+    template_name = 'frontend/about.html'
 
 
+class MenuView(TemplateView):
+    template_name = 'frontend/menu.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        birthday_cakes = Cake.objects.filter(type='Birthday', active=True)
+        cup_cakes = Cake.objects.filter(type='Cupcakes', active=True)
+        custom_cakes = Cake.objects.filter(type='Custom', active=True)
+        context.update({
+            'birthday_cakes': birthday_cakes,
+            'cup_cakes': cup_cakes,
+            'custom_cakes': custom_cakes,
+            'include_mode': False 
+        })
+        return context
 
-def registraion(request):
-    return render(request, 'frontend/sign.html')
+
+class TeamView(TemplateView):
+    template_name = 'frontend/team.html'
 
 
-# def AddToCart(request):
-  
-#     return render(request, 'frontend/cart.html', )
+class ServiceView(ListView):
+    model = Services
+    template_name = 'frontend/services.html'
+    context_object_name = 'services'
+    
+    def get_queryset(self):
+        return Services.objects.filter(active=True)
 
 
+class TestimonialView(TemplateView):
+    template_name = 'frontend/testimonial.html'
+
+
+class ContactUsView(TemplateView):
+    template_name = 'frontend/contact.html'
+
+
+class RegistrationView(TemplateView):
+    template_name = 'frontend/sign.html'
 
 
 class AddToCartView(View):
