@@ -15,7 +15,61 @@
         .then(response => response.json())
             .then(data => {
                 const container = document.querySelector(`#tab-${category.toLowerCase()} .row`);
-                container.innerHTML = '';  
+                container.innerHTML = '';
+                
+                // Add pricing header based on category
+                let pricingHeader = '';
+                if (category === 'Cakes') {
+                    pricingHeader = `
+                        <div class="col-12 mb-4">
+                            <div class="alert alert-info text-center">
+                                <h4 class="mb-2">🎂 Cake Pricing</h4>
+                                <small class="text-muted">Starting from</small>
+                                <p class="mb-0"><strong>Rs 1600 per pound</strong></p>
+                                <small class="text-muted">All our cakes are priced per pound. Contact us for custom sizes! (Minimum 2 pound)</small>
+                            </div>
+                        </div>
+                    `;
+                } else if (category === 'Cupcakes') {
+                    pricingHeader = `
+                        <div class="col-12 mb-4">
+                            <div class="alert alert-info text-center">
+                                <h4 class="mb-2">🧁 Cupcake Pricing</h4>
+                                <small class="text-muted">Starting from</small>
+                                <p class="mb-0"><strong>Rs 380 per piece</strong></p>
+                                <small class="text-muted">Perfect for individual servings or bulk orders! (Minimum 6 pieces)</small>
+                            </div>
+                        </div>
+                    `;
+                } else if (category === 'Bouquets') {
+                    pricingHeader = `
+                        <div class="col-12 mb-4">
+                            <div class="alert alert-info text-center">
+                                <h4 class="mb-2">🌸 Bouquet Pricing</h4>
+                                <small class="text-muted">Starting from</small>
+                                <p class="mb-0"><strong>Rs 1200 per bouquet</strong></p>
+                                <small class="text-muted">Perfect for individual servings or bulk orders!</small>
+                            </div>
+                        </div>
+                    `;
+                } else if (category === 'Customs') {
+                    pricingHeader = `
+                        <div class="col-12 mb-4">
+                            <div class="alert alert-info text-center">
+                                <h4 class="mb-2">🎨 Custom Pricing</h4>
+                                <small class="text-muted">Starting from</small>
+                                <p class="mb-0"><strong>Rs 1800 per item</strong></p>
+                                <small class="text-muted">Custom designs and special orders available! Contact us for details.</small>
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                // Add pricing header if it exists
+                if (pricingHeader) {
+                    container.innerHTML = pricingHeader;
+                }
+                
                 data.forEach(product => {
                     const productCard = `
                         <div class="col-lg-3 p-3">
