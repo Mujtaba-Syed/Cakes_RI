@@ -16,8 +16,14 @@ chmod +x deploy.sh
 ./deploy.sh
 ```
 
-### 3. Access Your Site
-- **URL:** http://cakebyrimi.com:8002
+### 3. Set Up Nginx (One-time setup)
+```bash
+chmod +x setup-nginx.sh
+./setup-nginx.sh
+```
+
+### 4. Access Your Site
+- **URL:** http://cakebyrimi.com (no port needed!)
 - **Your existing site:** https://qhenterprises.com
 
 ## Files Explained
