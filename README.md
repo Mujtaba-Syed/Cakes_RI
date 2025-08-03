@@ -16,21 +16,25 @@ chmod +x deploy.sh
 ./deploy.sh
 ```
 
-### 3. Set Up Nginx (One-time setup)
+### 3. Start Your Application
 ```bash
+# Clean up any system nginx config
 chmod +x setup-nginx.sh
 ./setup-nginx.sh
+
+# Start containers
+docker-compose up -d --build
 ```
 
 ### 4. Access Your Site
-- **URL:** http://cakebyrimi.com (no port needed!)
+- **URL:** http://cakebyrimi.com:8002
 - **Your existing site:** https://qhenterprises.com
 
 ## Files Explained
 
 - **`docker-compose.yml`** - Runs your Django app on port 8001 and nginx on port 8002
-- **`nginx/cakes.conf`** - Nginx configuration for your cake project
-- **`deploy.sh`** - Simple deployment script
+- **`nginx/cakes.conf`** - Nginx configuration for your cake project (Docker container)
+- **`setup-nginx.sh`** - Cleans up system nginx config and provides instructions
 - **`nginx/django.conf`** - Old config (not used)
 
 ## DNS Setup Required

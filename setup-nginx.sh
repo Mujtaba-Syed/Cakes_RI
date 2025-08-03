@@ -1,23 +1,15 @@
 #!/bin/bash
 
-echo "Setting up nginx for cakebyrimi.com..."
+echo "Setting up Docker nginx for cakebyrimi.com..."
 
-# Copy the cake nginx configuration
-cp nginx/cake-only.conf /etc/nginx/sites-available/cakebyrimi.com
+# Remove any existing system nginx config for cake project
+rm -f /etc/nginx/sites-enabled/cakebyrimi.com
+rm -f /etc/nginx/sites-available/cakebyrimi.com
 
-# Enable the site
-ln -s /etc/nginx/sites-available/cakebyrimi.com /etc/nginx/sites-enabled/
-
-# Test nginx configuration
-nginx -t
-
-if [ $? -eq 0 ]; then
-    echo "Nginx configuration is valid!"
-    echo "Reloading nginx..."
-    systemctl reload nginx
-    echo "Setup completed!"
-    echo "Your cake site should now be accessible at: http://cakebyrimi.com"
-else
-    echo "Error: Nginx configuration test failed!"
-    echo "Please check the configuration manually."
-fi 
+echo "System nginx config removed."
+echo "Using Docker nginx only."
+echo ""
+echo "To start your cake project:"
+echo "docker-compose up -d --build"
+echo ""
+echo "Your cake site will be accessible at: http://cakebyrimi.com:8002" 

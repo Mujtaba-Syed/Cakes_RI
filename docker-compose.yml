@@ -20,7 +20,7 @@ services:
     image: nginx:latest
     container_name: cakes_nginx
     ports:
-      - "8003:80"
+      - "8002:80"
     volumes:
       - ./nginx/cakes.conf:/etc/nginx/conf.d/default.conf
       - ./staticfiles:/app/staticfiles
