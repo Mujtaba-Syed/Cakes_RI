@@ -1,12 +1,12 @@
 #!/bin/bash
 
-echo "Setting up nginx for both domains..."
+echo "Setting up nginx for cakebyrimi.com..."
 
-# Backup current nginx config
-cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.backup
+# Copy the cake nginx configuration
+cp nginx/cake-only.conf /etc/nginx/sites-available/cakebyrimi.com
 
-# Copy the combined nginx configuration
-cp nginx/combined-nginx.conf /etc/nginx/nginx.conf
+# Enable the site
+ln -s /etc/nginx/sites-available/cakebyrimi.com /etc/nginx/sites-enabled/
 
 # Test nginx configuration
 nginx -t
@@ -16,12 +16,8 @@ if [ $? -eq 0 ]; then
     echo "Reloading nginx..."
     systemctl reload nginx
     echo "Setup completed!"
-    echo "Your sites should now be accessible at:"
-    echo "- QnH Enterprises: https://qhenterprises.com"
-    echo "- Cake project: http://cakebyrimi.com"
+    echo "Your cake site should now be accessible at: http://cakebyrimi.com"
 else
     echo "Error: Nginx configuration test failed!"
-    echo "Restoring backup..."
-    cp /etc/nginx/nginx.conf.backup /etc/nginx/nginx.conf
     echo "Please check the configuration manually."
 fi 
