@@ -30,6 +30,16 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['77.37.47.26', 'cakebyrimi.com', 'www.cakebyrimi.com', 'localhost', '127.0.0.1', '0.0.0.0']
 
+# CSRF settings
+CSRF_TRUSTED_ORIGINS = [
+    'http://cakebyrimi.com:8002',
+    'https://cakebyrimi.com:8002',
+    'http://www.cakebyrimi.com:8002',
+    'https://www.cakebyrimi.com:8002',
+    'http://77.37.47.26:8002',
+    'https://77.37.47.26:8002',
+]
+
 
 # Application definition
 
