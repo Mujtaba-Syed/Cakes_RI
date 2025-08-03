@@ -4,8 +4,7 @@ services:
   web:
     build: .
     container_name: ecommerce_app
-    ports:
-      - "8000:8000"
+    network_mode: host
     volumes:
       - .:/app
       - ./staticfiles:/app/staticfiles
