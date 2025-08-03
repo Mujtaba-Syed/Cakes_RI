@@ -3,6 +3,10 @@ from django.db import models
 # Create your models here.
 class Flavor(models.Model):
     name=models.CharField(max_length=120)
+    
+    def __str__(self):
+        return self.name
+
 class Cake(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
@@ -12,9 +16,14 @@ class Cake(models.Model):
     flavor=models.ManyToManyField(Flavor)
     active = models.BooleanField(default=True)
     
+    def __str__(self):
+        return self.name
     
 class Services(models.Model):
     name=models.CharField(max_length=100)
     description= models.TextField()
     image=models.ImageField(upload_to='services')
     active=models.BooleanField(default=True)
+    
+    def __str__(self):
+        return self.name
