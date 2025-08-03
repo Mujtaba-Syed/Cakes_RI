@@ -28,16 +28,17 @@ SECRET_KEY = "django-insecure-&hst_m&mdwh^mmxhsw86^)buy#1ar)1xlp+j#xjicaraj#n9%6
 #run in production
 DEBUG = False
 
-ALLOWED_HOSTS = ['77.37.47.26', 'cakebyrimi.com', 'www.cakebyrimi.com', 'localhost', '127.0.0.1', '0.0.0.0']
+ALLOWED_HOSTS = ['168.231.123.118', 'cakebyrimi.com', 'www.cakebyrimi.com', 'localhost', '127.0.0.1', '0.0.0.0']
 
 # CSRF settings
 CSRF_TRUSTED_ORIGINS = [
-    'http://cakebyrimi.com:8002',
-    'https://cakebyrimi.com:8002',
-    'http://www.cakebyrimi.com:8002',
-    'https://www.cakebyrimi.com:8002',
-    'http://77.37.47.26:8002',
-    'https://77.37.47.26:8002',
+    'http://cakebyrimi.com',
+    'https://cakebyrimi.com',
+    'http://www.cakebyrimi.com',
+    'https://www.cakebyrimi.com',
+
+    'http://168.231.123.118',
+    'https://168.231.123.118',
 ]
 
 
