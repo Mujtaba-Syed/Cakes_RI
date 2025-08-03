@@ -1,0 +1,49 @@
+/* CSS code for styling the label */
+
+.label-style {
+    font-weight: bold;
+    /* Make the text bold */
+    color: #333;
+    /* Set text color */
+    font-size: 16px;
+    /* Set font size */
+    margin-bottom: 5px;
+    /* Add margin at the bottom */
+    display: block;
+    /* Make it a block element to ensure proper spacing */
+}
+
+
+/* CSS code for styling the input field */
+
+.input-style {
+    width: 100%;
+    /* Set the width to fill the container */
+    padding: 8px;
+    /* Add padding for better appearance */
+    font-size: 14px;
+    /* Set font size */
+    border: 1px solid #ccc;
+    /* Add border for clarity */
+    border-radius: 4px;
+    /* Add border radius for rounded corners */
+}
+
+.select-style {
+    width: 100%;
+    /* Set the width to fill the container */
+    padding: 8px;
+    /* Add padding for better appearance */
+    font-size: 14px;
+    /* Set font size */
+    border: 1px solid #ccc;
+    /* Add border for clarity */
+    border-radius: 4px;
+    /* Add border radius for rounded corners */
+    appearance: none;
+    /* Remove default appearance */
+    background: url('path/to/arrow-icon.png') no-repeat right;
+    /* Add custom arrow icon */
+    background-size: 20px;
+    /* Set size of the background arrow icon */
+}
