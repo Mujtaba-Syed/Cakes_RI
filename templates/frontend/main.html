@@ -142,20 +142,19 @@
                                 <a class="text-secondary mb-2" href="{% url 'home' %}"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
                                 <a class="text-secondary mb-2" href="{% url 'aboutus' %}"><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
                                 <a class="text-secondary mb-2" href="{% url 'services' %}"><i class="bi bi-arrow-right text-primary me-2"></i>Our Services</a>
-                                <a class="text-secondary mb-2" href="{% url 'team' %}"><i class="bi bi-arrow-right text-primary me-2"></i>Meet The Team</a>
-                                <a class="text-secondary mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Latest Blog</a>
+                                <!-- <a class="text-secondary mb-2" href="{% url 'team' %}"><i class="bi bi-arrow-right text-primary me-2"></i>Meet The Team</a> -->
+                                <!-- <a class="text-secondary mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Latest Blog</a> -->
                                 <a class="text-secondary" href="{% url 'contactus' %}"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
-                            <h4 class="text-primary text-uppercase mb-4">Newsletter</h4>
-                            <p>Amet justo diam dolor rebum lorem sit stet sea justo kasd</p>
-                            <form action="">
-                                <div class="input-group">
-                                    <a href="{% url 'register' %}" class="btn btn-primary">Sign Up</a>
-
+                            <h4 class="text-primary text-uppercase mb-4">Behind-the-Scenes</h4>
+                            <div class="d-flex align-items-center">
+                                <img src="{% static 'images/cakes/cake1.jpg' %}" alt="Handmade Cake" class="rounded-circle me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                                <div>
+                                    <p class="mb-0">All cakes are handmade with love in our home kitchen 🍰❤️</p>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>

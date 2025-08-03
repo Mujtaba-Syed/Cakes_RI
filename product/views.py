@@ -22,7 +22,7 @@ class GetAllProductsView(APIView):
     
 class RedirectToWhatsAppView(View):
     def get(self, request: HttpRequest):
-        base_url = "https://wa.me/3354919379"
+        base_url = "https://wa.me/3094817724"
         
         cake_name = request.GET.get('cake_name', 'Unknown Cake')
         cake_price = request.GET.get('cake_price', '0')
