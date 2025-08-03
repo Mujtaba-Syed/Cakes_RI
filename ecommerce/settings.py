@@ -99,14 +99,14 @@ import os
 
 # Check if we're in production (you can set this environment variable)
 if os.environ.get('DJANGO_ENV') == 'production':
-    # Production: Use PostgreSQL on localhost (same VPS)
+    # Production: Use PostgreSQL on host machine
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'ecommerce_db',
             'USER': 'ecommerce_user',
             'PASSWORD': 'cakebyrimiMujtaba', 
-            'HOST': '127.0.0.1',  
+            'HOST': '168.231.123.118',  # Your VPS IP
             'PORT': '5432',
         }
     }
