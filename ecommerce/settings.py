@@ -106,7 +106,7 @@ if os.environ.get('DJANGO_ENV') == 'production':
             'NAME': 'ecommerce_db',
             'USER': 'ecommerce_user',
             'PASSWORD': 'cakebyrimiMujtaba', 
-            'HOST': 'host.docker.internal',
+            'HOST': '168.231.123.118',  # Your VPS IP
             'PORT': '5432',
         }
     }
