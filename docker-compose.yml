@@ -3,7 +3,7 @@ version: '3.8'
 services:
   web:
     build: .
-    container_name: cakes_app
+    container_name: ecommerce_app
     expose:
       - "8000"
     volumes:
@@ -15,12 +15,10 @@ services:
     command: >
       sh -c "python manage.py collectstatic --noinput &&
              gunicorn --bind 0.0.0.0:8000 ecommerce.wsgi:application"
-    depends_on:
-      - nginx
 
   nginx:
     image: nginx:alpine
-    container_name: cakes_nginx
+    container_name: nginx_server
     ports:
       - "80:80"
       - "443:443"
