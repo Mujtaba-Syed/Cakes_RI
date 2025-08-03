@@ -15,6 +15,9 @@ services:
     command: >
       sh -c "python manage.py collectstatic --noinput &&
              gunicorn --bind 0.0.0.0:8000 ecommerce.wsgi:application"
+    networks:
+          - qnh-enterprises_app_network
 
 networks:
-  app_network:
+  qnh-enterprises_app_network:
+    external: true 
