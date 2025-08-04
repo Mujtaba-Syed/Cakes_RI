@@ -26,14 +26,12 @@ class RedirectToWhatsAppView(View):
         
         cake_name = request.GET.get('cake_name', 'Unknown Cake')
         cake_price = request.GET.get('cake_price', '0')
-        cake_desc = request.GET.get('cake_desc', 'No description available')
         cake_type = request.GET.get('cake_type', 'Unknown Type')
 
         message = (
             f"Hi , I would like to order:\n"
             f"🍰 *{cake_name}*\n"
             f"💰 Price: Rs {cake_price}\n"
-            f"📜 Description: {cake_desc}\n"
             f"📦 Type: {cake_type}\n"
             f"Please let me know the next steps!"
         )

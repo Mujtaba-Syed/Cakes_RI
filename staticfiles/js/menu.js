@@ -80,7 +80,7 @@
                                     <h5 class="card-title">${product.name}</h5>
                                     <p class="card-text">${product.description}</p>
                                     <p class="card-text"> Rs ${product.price}</p>
-                                    <a href="/product/redirect-to-whatsapp/?cake_name=${encodeURIComponent(product.name)}&cake_price=${encodeURIComponent(product.price)}&cake_desc=${encodeURIComponent(product.description)}&cake_type=${encodeURIComponent(category)}" class="btn btn-primary">
+                                    <a href="/product/redirect-to-whatsapp/?cake_name=${encodeURIComponent(product.name)}&cake_price=${encodeURIComponent(product.price)}&cake_type=${encodeURIComponent(category)}" class="btn btn-primary">
                                         Order on WhatsApp
                                     </a>
                                 </div>
