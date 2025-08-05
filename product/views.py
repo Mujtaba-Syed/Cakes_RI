@@ -35,9 +35,9 @@ class RedirectToWhatsAppView(View):
 
             message = (
                 f"Hi , I would like to order:\n"
-                f"🍰 *{cake_name}*\n"
-                f"💰 Price: Rs {cake_price}\n"
-                f"📦 Type: {cake_type}\n"
+                f"*{cake_name}*\n"
+                f"Price: Rs {cake_price}\n"
+                f"Type: {cake_type}\n"
                 f"Please let me know the next steps!"
             )
 
