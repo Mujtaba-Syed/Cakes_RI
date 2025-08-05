@@ -2,10 +2,10 @@ asgiref==3.7.2
 Django==4.2.5
 django-js-asset==3.0.1
 djangorestframework==3.15.2
-Pillow==10.0.1
+Pillow>=11.0.0
 sqlparse==0.4.4
 typing_extensions==4.8.0
 tzdata==2023.3
 uuid==1.30
 gunicorn>=23.0.0
-psycopg2-binary==2.9.7
+psycopg2-binary>=2.9.9

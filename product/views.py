@@ -24,17 +24,22 @@ class RedirectToWhatsAppView(View):
     def get(self, request: HttpRequest):
         base_url = "https://wa.me/3094817724"
         
-        cake_name = request.GET.get('cake_name', 'Unknown Cake')
-        cake_price = request.GET.get('cake_price', '0')
-        cake_type = request.GET.get('cake_type', 'Unknown Type')
+        general_message = request.GET.get('message', None)
+        
+        if general_message:
+            message = general_message
+        else:
+            cake_name = request.GET.get('cake_name', 'Unknown Cake')
+            cake_price = request.GET.get('cake_price', '0')
+            cake_type = request.GET.get('cake_type', 'Unknown Type')
 
-        message = (
-            f"Hi , I would like to order:\n"
-            f"🍰 *{cake_name}*\n"
-            f"💰 Price: Rs {cake_price}\n"
-            f"📦 Type: {cake_type}\n"
-            f"Please let me know the next steps!"
-        )
+            message = (
+                f"Hi , I would like to order:\n"
+                f"🍰 *{cake_name}*\n"
+                f"💰 Price: Rs {cake_price}\n"
+                f"📦 Type: {cake_type}\n"
+                f"Please let me know the next steps!"
+            )
 
         encoded_message = message.replace(" ", "%20").replace("\n", "%0A")
 
