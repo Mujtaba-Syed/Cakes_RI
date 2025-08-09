@@ -91,6 +91,7 @@ class Product(models.Model):
         ('Cakes', 'Cakes'),
         ('Cupcakes', 'Cupcakes'),
         ('Bouquets', 'Bouquets'),
+        ('Cookies', 'Cookies'),
         ('Customs', 'Customs'),
     ]
     name=models.CharField(max_length=200)

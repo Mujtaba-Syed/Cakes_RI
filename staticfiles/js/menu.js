@@ -48,14 +48,25 @@
                                 <h4 class="mb-2">🌸 Bouquet Pricing</h4>
                                 <small class="text-muted">Starting from</small>
                                 <p class="mb-0"><strong>Rs 1800 per bouquet</strong></p>
-                                <small class="text-muted">Perfect for individual servings or bulk orders!</small>
+                                <small class="text-muted">Contact us for custom designs and special orders!</small>
+                            </div>
+                        </div>
+                    `;
+                } else if (category === 'Cookies') {
+                    pricingHeader = `
+                        <div class="col-12 mb-4" >
+                            <div class="alert alert-info text-center">
+                                <h4 class="mb-2">🍪 Cookie Pricing</h4>
+                                <small class="text-muted">Starting from</small>
+                                <p class="mb-0"><strong>Rs 350 per piece</strong></p>
+                                <small class="text-muted">Ideal for both personal treats and party platters. (Minimum 8 pieces)</small>
                             </div>
                         </div>
                     `;
                 } else if (category === 'Customs') {
                     pricingHeader = `
                         <div class="col-12 mb-4">
-                             <div class="alert alert-info text-center">
+                            <div class="alert alert-info text-center">
                                 <h4 class="mb-2">🎨 Custom Orders</h4>
                                 <p class="mb-0">We create unique designs tailored to your needs.</p>
                                 <small class="text-muted">Contact us directly for personalized pricing and options.</small>
