@@ -23,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-&hst_m&mdwh^mmxhsw86^)buy#1ar)1xlp+j#xjicaraj#n9%6"
 
 # run in dev
-# DEBUG = True
+DEBUG = True
 
 #run in production
-DEBUG = False
+# DEBUG = False
 
 ALLOWED_HOSTS = ['168.231.123.118', 'cakebyrimi.com', 'www.cakebyrimi.com', 'localhost', '127.0.0.1', '0.0.0.0']
 
@@ -118,7 +118,9 @@ else:
             "NAME": BASE_DIR / "db.sqlite3",
         }
     }
-
+print("is production", os.environ.get('DJANGO_ENV') == 'production')
+print("is development", os.environ.get('DJANGO_ENV') == 'development')
+print("is debug", DEBUG)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
