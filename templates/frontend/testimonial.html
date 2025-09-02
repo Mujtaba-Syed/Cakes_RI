@@ -15,6 +15,7 @@
         </div>
     </div>
     <!-- Page Header End -->
+    
     <!-- Testimonial Start -->
     <div class="container-fluid py-5">
         <div class="container">
@@ -22,56 +23,29 @@
                 <h2 class="text-primary font-secondary">Testimonial</h2>
                 <h1 class="display-4 text-uppercase">Our Clients Say!!!</h1>
             </div>
-            <div class="owl-carousel testimonial-carousel">
-                <div class="testimonial-item bg-dark text-white border-inner p-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <img class="img-fluid flex-shrink-0" src="img/testimonial-1.jpg" style="width: 60px; height: 60px;">
-                        <div class="ps-3">
-                            <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
-                            <span>Profession</span>
-                        </div>
+
+            <div class="position-relative">
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" id="testimonial-carousel">
+                        <!-- Reviews injected dynamically -->
                     </div>
-                    <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                    </p>
                 </div>
-                <div class="testimonial-item bg-dark text-white border-inner p-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <img class="img-fluid flex-shrink-0" src="img/testimonial-2.jpg" style="width: 60px; height: 60px;">
-                        <div class="ps-3">
-                            <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
-                            <span>Profession</span>
-                        </div>
-                    </div>
-                    <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                    </p>
-                </div>
-                <div class="testimonial-item bg-dark text-white border-inner p-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <img class="img-fluid flex-shrink-0" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;">
-                        <div class="ps-3">
-                            <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
-                            <span>Profession</span>
-                        </div>
-                    </div>
-                    <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                    </p>
-                </div>
-                <div class="testimonial-item bg-dark text-white border-inner p-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <img class="img-fluid flex-shrink-0" src="img/testimonial-4.jpg" style="width: 60px; height: 60px;">
-                        <div class="ps-3">
-                            <h4 class="text-primary text-uppercase mb-1">Client Name</h4>
-                            <span>Profession</span>
-                        </div>
-                    </div>
-                    <p class="mb-0">Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam
-                    </p>
-                </div>
+
+                <!-- Navigation Buttons -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev" style="top: 50%; transform: translateY(-50%); left: -120px;">
+                    <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next" style="top: 50%; transform: translateY(-50%); right: -120px;">
+                    <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
     </div>
     <!-- Testimonial End -->
 
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/home.js' %}"></script>
 
 {% endblock%}

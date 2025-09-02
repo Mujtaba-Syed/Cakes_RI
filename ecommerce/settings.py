@@ -23,12 +23,23 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-&hst_m&mdwh^mmxhsw86^)buy#1ar)1xlp+j#xjicaraj#n9%6"
 
 # run in dev
-DEBUG = True
+# DEBUG = True
 
 #run in production
-# DEBUG = False
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['168.231.123.118', 'cakebyrimi.com', 'www.cakebyrimi.com', 'localhost', '127.0.0.1', '0.0.0.0']
+
+# CSRF settings
+CSRF_TRUSTED_ORIGINS = [
+    'http://cakebyrimi.com',
+    'https://cakebyrimi.com',
+    'http://www.cakebyrimi.com',
+    'https://www.cakebyrimi.com',
+
+    'http://168.231.123.118',
+    'https://168.231.123.118',
+]
 
 
 # Application definition
@@ -84,13 +95,32 @@ WSGI_APPLICATION = "ecommerce.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}
+import os
 
+# Check if we're in production (you can set this environment variable)
+if os.environ.get('DJANGO_ENV') == 'production':
+    # Production: Use PostgreSQL on host machine
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'ecommerce_db',
+            'USER': 'ecommerce_user',
+            'PASSWORD': 'cakebyrimiMujtaba', 
+            'HOST': '168.231.123.118',  # Your VPS IP
+            'PORT': '5432',
+        }
+    }
+else:
+    # Development: Use SQLite
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
+print("is production", os.environ.get('DJANGO_ENV') == 'production')
+print("is development", os.environ.get('DJANGO_ENV') == 'development')
+print("is debug", DEBUG)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

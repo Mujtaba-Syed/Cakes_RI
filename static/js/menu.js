@@ -36,7 +36,7 @@
                             <div class="alert alert-info text-center">
                                 <h4 class="mb-2">🧁 Cupcake Pricing</h4>
                                 <small class="text-muted">Starting from</small>
-                                <p class="mb-0"><strong>Rs 380 per piece</strong></p>
+                                <p class="mb-0"><strong>Rs 320 per piece</strong></p>
                                 <small class="text-muted">Perfect for individual servings or bulk orders! (Minimum 6 pieces)</small>
                             </div>
                         </div>
@@ -47,8 +47,19 @@
                             <div class="alert alert-info text-center">
                                 <h4 class="mb-2">🌸 Bouquet Pricing</h4>
                                 <small class="text-muted">Starting from</small>
-                                <p class="mb-0"><strong>Rs 1200 per bouquet</strong></p>
+                                <p class="mb-0"><strong>Rs 1800 per bouquet</strong></p>
                                 <small class="text-muted">Contact us for custom designs and special orders!</small>
+                            </div>
+                        </div>
+                    `;
+                } else if (category === 'Cookies') {
+                    pricingHeader = `
+                        <div class="col-12 mb-4" >
+                            <div class="alert alert-info text-center">
+                                <h4 class="mb-2">🍪 Cookie Pricing</h4>
+                                <small class="text-muted">Starting from</small>
+                                <p class="mb-0"><strong>Rs 350 per piece</strong></p>
+                                <small class="text-muted">Ideal for both personal treats and party platters. (Minimum 8 pieces)</small>
                             </div>
                         </div>
                     `;
@@ -56,10 +67,9 @@
                     pricingHeader = `
                         <div class="col-12 mb-4">
                             <div class="alert alert-info text-center">
-                                <h4 class="mb-2">🎨 Custom Pricing</h4>
-                                <small class="text-muted">Starting from</small>
-                                <p class="mb-0"><strong>Rs 1800 per item</strong></p>
-                                <small class="text-muted">Custom designs and special orders available! Contact us for details.</small>
+                                <h4 class="mb-2">🎨 Custom Orders</h4>
+                                <p class="mb-0">We create unique designs tailored to your needs.</p>
+                                <small class="text-muted">Contact us directly for personalized pricing and options.</small>
                             </div>
                         </div>
                     `;
@@ -80,8 +90,8 @@
                                 <div class="card-body">
                                     <h5 class="card-title">${product.name}</h5>
                                     <p class="card-text">${product.description}</p>
-                                    <p class="card-text">(Starting from) Rs ${product.price}</p>
-                                    <a href="/product/redirect-to-whatsapp/?cake_name=${encodeURIComponent(product.name)}&cake_price=${encodeURIComponent(product.price)}&cake_desc=${encodeURIComponent(product.description)}&cake_type=${encodeURIComponent(category)}" class="btn btn-primary">
+                                    <p class="card-text"> Rs ${product.price}</p>
+                                    <a href="/product/redirect-to-whatsapp/?cake_name=${encodeURIComponent(product.name)}&cake_price=${encodeURIComponent(product.price)}&cake_type=${encodeURIComponent(category)}" class="btn btn-primary">
                                         Order on WhatsApp
                                     </a>
                                 </div>

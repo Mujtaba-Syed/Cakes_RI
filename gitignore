@@ -16,3 +16,5 @@
 *.jiff
 *.jfif
 
+# Ignore database files
+db.sqlite3

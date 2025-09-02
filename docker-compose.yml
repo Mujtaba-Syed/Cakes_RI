@@ -9,11 +9,13 @@ services:
     volumes:
       - .:/app
       - ./staticfiles:/app/staticfiles
-      - ./media:/app/media
+      - media_volume:/app/media
     environment:
-      - DEBUG=True
+      - DEBUG=${DEBUG}
+      - DJANGO_ENV=${DJANGO_ENV}
     command: >
       sh -c "python manage.py collectstatic --noinput &&
+             python manage.py migrate &&
              gunicorn --bind 0.0.0.0:8000 ecommerce.wsgi:application"
 
   nginx:
@@ -22,8 +24,11 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./nginx/django.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
       - ./staticfiles:/app/staticfiles
-      - ./media:/app/media
+      - media_volume:/app/media
     depends_on:
       - web
+
+volumes:
+  media_volume:
