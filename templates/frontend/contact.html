@@ -43,25 +43,14 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <form>
-                        <div class="row g-3">
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control bg-light border-0 px-4" placeholder="Your Name" style="height: 55px;">
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="email" class="form-control bg-light border-0 px-4" placeholder="Your Email" style="height: 55px;">
-                            </div>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control bg-light border-0 px-4" placeholder="Subject" style="height: 55px;">
-                            </div>
-                            <div class="col-sm-12">
-                                <textarea class="form-control bg-light border-0 px-4 py-3" rows="4" placeholder="Message"></textarea>
-                            </div>
-                            <div class="col-sm-12">
-                                <button class="btn btn-primary border-inner w-100 py-3" type="submit">Send Message</button>
-                            </div>
-                        </div>
-                    </form>
+                    <p class="mb-2 text-white">
+                        For custom cake orders, special designs, or more details — feel free to reach us on WhatsApp.
+                    </p>
+                    <a href="{% url 'contact_whatsapp' %}?message=Hi! I have some queries about your cakes. Can you please help me?" 
+                        class="btn btn-success border-inner w-100 py-3" 
+                        style="background-color: #c38edb ; border-color: #c38edb ;">
+                        <i class="fab fa-whatsapp me-2"></i>Contact Us on WhatsApp
+                    </a>
                 </div>
             </div>
         </div>
