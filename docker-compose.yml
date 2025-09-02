@@ -11,8 +11,8 @@ services:
       - ./staticfiles:/app/staticfiles
       - media_volume:/app/media
     environment:
-      - DEBUG=False
-      - DJANGO_ENV=production
+      - DEBUG=${DEBUG}
+      - DJANGO_ENV=${DJANGO_ENV}
     command: >
       sh -c "python manage.py collectstatic --noinput &&
              python manage.py migrate &&

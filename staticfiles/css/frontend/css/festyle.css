@@ -129,9 +129,12 @@ h6,
 }
 
 .hero-header {
-    background: url(../../../images/frontend/img/Chocolate-Cupcakes.jpg) top right no-repeat;
-    background-size: cover;
+    background: url(../../../images/frontend/img/home-1.jpg) top right no-repeat;
+    background-size: 100% auto;
+    background-position: center right;
+    height: 80vh !important;
 }
+
 
 .btn-play {
     position: relative;

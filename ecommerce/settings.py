@@ -118,7 +118,9 @@ else:
             "NAME": BASE_DIR / "db.sqlite3",
         }
     }
-
+print("is production", os.environ.get('DJANGO_ENV') == 'production')
+print("is development", os.environ.get('DJANGO_ENV') == 'development')
+print("is debug", DEBUG)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
