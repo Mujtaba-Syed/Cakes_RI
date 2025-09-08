@@ -22,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-&hst_m&mdwh^mmxhsw86^)buy#1ar)1xlp+j#xjicaraj#n9%6"
 
-# run in dev
+# # run in dev
 # DEBUG = True
 
-#run in production
-DEBUG = False
-
+# # #run in production
+# # DEBUG = False
+DEBUG = os.environ.get('DEBUG')
 ALLOWED_HOSTS = ['168.231.123.118', 'cakebyrimi.com', 'www.cakebyrimi.com', 'localhost', '127.0.0.1', '0.0.0.0']
 
 # CSRF settings

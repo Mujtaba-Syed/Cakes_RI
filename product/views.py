@@ -13,9 +13,9 @@ class GetAllProductsView(APIView):
     def get(self, request):
         category= request.query_params.get('category', None)
         if category:
-            products= Product.objects.filter(category=category, is_active=True)
+            products= Product.objects.filter(category=category, is_active=True).order_by('-updated_at')
         else:  
-            products = Product.objects.filter(is_active=True)
+            products = Product.objects.filter(is_active=True).order_by('-updated_at')
         serializer = GetAllProductSerializers(products, many=True)
         return Response(serializer.data)
     
@@ -45,4 +45,16 @@ class RedirectToWhatsAppView(View):
 
         whatsapp_url = f"{base_url}?text={encoded_message}"
 
+        return redirect(whatsapp_url)
+
+class ContactWhatsAppView(View):
+    def get(self, request: HttpRequest):
+        base_url = "https://wa.me/3094817724"
+        
+        message = request.GET.get('message', None)
+        
+        encoded_message = message.replace(" ", "%20").replace("\n", "%0A")
+        
+        whatsapp_url = f"{base_url}?text={encoded_message}"
+        
         return redirect(whatsapp_url)
