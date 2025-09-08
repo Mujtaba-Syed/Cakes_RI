@@ -13,9 +13,9 @@ class GetAllProductsView(APIView):
     def get(self, request):
         category= request.query_params.get('category', None)
         if category:
-            products= Product.objects.filter(category=category, is_active=True)
+            products= Product.objects.filter(category=category, is_active=True).order_by('-updated_at')
         else:  
-            products = Product.objects.filter(is_active=True)
+            products = Product.objects.filter(is_active=True).order_by('-updated_at')
         serializer = GetAllProductSerializers(products, many=True)
         return Response(serializer.data)
     
