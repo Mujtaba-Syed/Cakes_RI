@@ -10,6 +10,30 @@
             <h2 class="text-primary font-secondary">Menu & Pricing</h2>
             <h1 class="display-4 text-uppercase">Explore Our Products</h1>
         </div>
+        
+        <!-- Search Bar -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-6 col-md-8">
+                <div class="search-container">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="searchInput" placeholder="Search for cakes, cupcakes, or any product..." aria-label="Search products">
+                        <button class="btn btn-primary" type="button" id="searchBtn">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                        <button class="btn btn-secondary" type="button" id="clearSearch" style="display: none;">
+                            <i class="fas fa-times"></i> Clear
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Search Results -->
+        <div id="searchResults" class="tab-pane fade show p-0" style="display: none;">
+            <div class="row g-3" id="searchResultsContainer">
+                <!-- Search results will be displayed here -->
+            </div>
+        </div>
         <div class="tab-class text-center">
             <ul class="nav nav-pills d-inline-flex justify-content-center bg-dark text-uppercase border-inner p-4 mb-5">
                 <li class="nav-item">
