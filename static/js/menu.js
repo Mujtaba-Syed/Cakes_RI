@@ -5,9 +5,12 @@
         document.querySelectorAll('.nav-link').forEach(tab => {
             tab.addEventListener('click', function(event) {
                 const category = event.target.getAttribute('data-category');
-                loadProducts(category);
                 // Hide search results when switching categories
-                hideSearchResults();
+                hideSearchResultsOnly();
+                // Load products after a short delay to ensure tab is visible
+                setTimeout(() => {
+                    loadProducts(category);
+                }, 100);
             });
         });
 
@@ -38,13 +41,26 @@
     });
 
     function loadProducts(category) {
+        console.log('Loading products for category:', category);
         fetch(`/product/api/get_all_products/?category=${category}`)
         .then(response => response.json())
             .then(data => {
-                const container = document.querySelector(`#${category.toLowerCase()}`);
+                // Map category names to correct container IDs
+                const categoryMap = {
+                    'Cakes': 'cakes',
+                    'Cupcakes': 'cupcakes', 
+                    'Bouquets': 'bouquets',
+                    'Cookies': 'cookies',
+                    'Customs': 'customs'
+                };
+                
+                const containerId = categoryMap[category];
+                const container = document.querySelector(`#${containerId}`);
+                
+                console.log('Container found:', container, 'for category:', category, 'containerId:', containerId);
                 
                 if (!container) {
-                    console.error('Container not found for category:', category);
+                    console.error('Container not found for category:', category, 'looking for:', containerId);
                     return;
                 }
                 
@@ -172,19 +188,16 @@
         const searchResults = document.getElementById('searchResults');
         const searchResultsContainer = document.getElementById('searchResultsContainer');
         const clearSearchBtn = document.getElementById('clearSearch');
+        const tabClass = document.querySelector('.tab-class');
         
         // Show search results and clear button
         searchResults.style.display = 'block';
         clearSearchBtn.style.display = 'inline-block';
         
-        // Hide category tabs
-        document.querySelector('.tab-class').style.display = 'none';
-        
-        // Hide all category product containers
-        const allCategoryContainers = document.querySelectorAll('.tab-content .row');
-        allCategoryContainers.forEach(container => {
-            container.style.display = 'none';
-        });
+        // Hide the tab navigation and content
+        if (tabClass) {
+            tabClass.style.display = 'none';
+        }
         
         // Create search results with proper Bootstrap row structure
         let searchContent = `
@@ -232,6 +245,7 @@
     }
 
     function clearSearch() {
+        console.log('Clearing search...');
         const searchInput = document.getElementById('searchInput');
         const searchResults = document.getElementById('searchResults');
         const searchResultsContainer = document.getElementById('searchResultsContainer');
@@ -244,51 +258,65 @@
         searchResultsContainer.innerHTML = '';
         clearSearchBtn.style.display = 'none';
         
-        // Show category tabs again
-        tabClass.style.display = 'block';
+        // Show category tabs and content again
+        if (tabClass) {
+            console.log('Showing tabClass...');
+            tabClass.style.display = 'block';
+        } else {
+            console.error('tabClass element not found!');
+        }
         
-        // Show only the active category container
+        // Get the active tab and reload products
         const activeTab = document.querySelector('.nav-link.active');
         const currentCategory = activeTab ? activeTab.getAttribute('data-category') : 'Cakes';
         
-        // Hide all category containers first
-        const allCategoryContainers = document.querySelectorAll('.tab-content .row');
-        allCategoryContainers.forEach(container => {
-            container.style.display = 'none';
-        });
+        console.log('Active tab:', activeTab, 'Current category:', currentCategory);
         
-        // Reset and reload products when clearing search to ensure proper structure
-        resetAndLoadProducts(currentCategory);
+        // Load products for the active category
+        loadProducts(currentCategory);
     }
 
     function hideSearchResults() {
         const searchResults = document.getElementById('searchResults');
         const clearSearchBtn = document.getElementById('clearSearch');
-        const tabClass = document.querySelector('.tab-class');
         
         searchResults.style.display = 'none';
         clearSearchBtn.style.display = 'none';
-        tabClass.style.display = 'block';
         
-        // Show only the active category container
+        // Let Bootstrap handle tab visibility - don't manually hide/show containers
+        // Just reload products for the active category
         const activeTab = document.querySelector('.nav-link.active');
         const currentCategory = activeTab ? activeTab.getAttribute('data-category') : 'Cakes';
         
-        // Hide all category containers first
-        const allCategoryContainers = document.querySelectorAll('.tab-content .row');
-        allCategoryContainers.forEach(container => {
-            container.style.display = 'none';
-        });
+        // Load products for the active category
+        loadProducts(currentCategory);
+    }
+
+    function hideSearchResultsOnly() {
+        const searchResults = document.getElementById('searchResults');
+        const clearSearchBtn = document.getElementById('clearSearch');
         
-        // Reset and reload products when hiding search results
-        resetAndLoadProducts(currentCategory);
+        searchResults.style.display = 'none';
+        clearSearchBtn.style.display = 'none';
+        
+        // Don't load products here - let the tab click handler do it
     }
 
     function resetAndLoadProducts(category) {
-        const container = document.querySelector(`#${category.toLowerCase()}`);
+        // Map category names to correct container IDs
+        const categoryMap = {
+            'Cakes': 'cakes',
+            'Cupcakes': 'cupcakes', 
+            'Bouquets': 'bouquets',
+            'Cookies': 'cookies',
+            'Customs': 'customs'
+        };
+        
+        const containerId = categoryMap[category];
+        const container = document.querySelector(`#${containerId}`);
         
         if (!container) {
-            console.error('Container not found for category:', category);
+            console.error('Container not found for category:', category, 'looking for:', containerId);
             return;
         }
         
