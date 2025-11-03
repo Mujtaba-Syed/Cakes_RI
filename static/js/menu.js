@@ -83,7 +83,7 @@
                             <div class="alert alert-info text-center">
                                 <h4 class="mb-2">🎂 Cake Pricing</h4>
                                 <small class="text-muted">Starting from</small>
-                                <p class="mb-0"><strong>Rs 1600 per pound</strong></p>
+                                <p class="mb-0"><strong>Rs 1700 per pound</strong></p>
                                 <small class="text-muted">All our cakes are priced per pound. Contact us for custom sizes! (Minimum 2 pound)</small>
                             </div>
                         </div>
@@ -94,7 +94,7 @@
                             <div class="alert alert-info text-center">
                                 <h4 class="mb-2">🧁 Cupcake Pricing</h4>
                                 <small class="text-muted">Starting from</small>
-                                <p class="mb-0"><strong>Rs 320 per piece</strong></p>
+                                <p class="mb-0"><strong>Rs 360 per piece</strong></p>
                                 <small class="text-muted">Perfect for individual servings or bulk orders! (Minimum 6 pieces)</small>
                             </div>
                         </div>
