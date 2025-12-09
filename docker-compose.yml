@@ -4,8 +4,13 @@ services:
   web:
     build: .
     container_name: ecommerce_app
-    ports:
-      - "8000:8000"
+    # Port 8000 should not be exposed publicly in production
+    # Remove the ports mapping or use "127.0.0.1:8000:8000" to only allow localhost access
+    # For production, remove this line entirely - nginx will handle all external traffic
+    # ports:
+    #   - "8000:8000"
+    expose:
+      - "8000"  # Expose internally to nginx only
     volumes:
       - .:/app
       - ./staticfiles:/app/staticfiles
