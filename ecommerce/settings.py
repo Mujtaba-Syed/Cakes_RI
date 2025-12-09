@@ -41,15 +41,13 @@ ALLOWED_HOSTS = [
     # but we need to allow the host without brackets when coming through proxy
 ]
 
-# CSRF settings
+# CSRF settings - Only HTTPS in production
 CSRF_TRUSTED_ORIGINS = [
-    'http://cakebyrimi.com',
     'https://cakebyrimi.com',
-    'http://www.cakebyrimi.com',
     'https://www.cakebyrimi.com',
-    'http://168.231.123.118',
     'https://168.231.123.118',
-]
+    # Keep HTTP only for development
+] + (['http://localhost:8000', 'http://127.0.0.1:8000'] if DEBUG else [])
 
 # CSRF cookie settings for better security
 CSRF_COOKIE_SECURE = True  # Only send over HTTPS

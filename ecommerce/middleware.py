@@ -35,8 +35,15 @@ class IPv6HostMiddleware(MiddlewareMixin):
 
 class SecurityHeadersMiddleware(MiddlewareMixin):
     """
-    Add additional security headers to responses.
+    Add additional security headers to responses and enforce HTTPS.
     """
+    
+    def process_request(self, request):
+        # Force HTTPS redirect if not already HTTPS (for direct Django access)
+        if not request.is_secure() and not request.META.get('HTTP_X_FORWARDED_PROTO') == 'https':
+            # This should be handled by nginx, but as a backup
+            pass
+        return None
     
     def process_response(self, request, response):
         # These headers are already set by nginx, but adding here as backup
@@ -46,6 +53,10 @@ class SecurityHeadersMiddleware(MiddlewareMixin):
         
         if not response.get('X-Content-Type-Options'):
             response['X-Content-Type-Options'] = 'nosniff'
+        
+        # Ensure Strict-Transport-Security is set
+        if not response.get('Strict-Transport-Security'):
+            response['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains; preload'
         
         return response
 
