@@ -34,6 +34,7 @@ services:
       - ./staticfiles:/app/staticfiles
       - media_volume:/app/media
       - /etc/letsencrypt:/etc/letsencrypt
+      - /var/www/certbot:/var/www/certbot  # For Let's Encrypt ACME challenge
     depends_on:
       - web
 
