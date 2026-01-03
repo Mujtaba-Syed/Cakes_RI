@@ -1,7 +1,23 @@
 {% extends 'frontend/main.html' %}
 {% load static %}
 
-{% block title %}About Us Page{% endblock %}
+{% block title %}About Us - Cake by Rimi | Handmade Cakes & Custom Desserts in Lahore{% endblock %}
+
+{% block meta_description %}
+<meta name="description" content="Learn about Cake by Rimi - crafting memories with handmade cakes, cupcakes, bouquets & custom desserts in Lahore. 100% healthy ingredients.">
+{% endblock %}
+
+{% block meta_keywords %}
+<meta name="keywords" content="about cake by rimi, handmade cakes Lahore, custom desserts, bakery Lahore, cake makers Pakistan, custom cupcakes, wedding cakes, birthday cakes">
+{% endblock %}
+
+{% block og_meta %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="About Us - Cake by Rimi | Handmade Cakes & Custom Desserts in Lahore">
+<meta property="og:description" content="Learn about Cake by Rimi - crafting memories with handmade cakes, cupcakes, bouquets & custom desserts in Lahore.">
+<meta property="og:url" content="https://www.cakebyrimi.com/aboutus/">
+<meta property="og:image" content="https://www.cakebyrimi.com{% static 'images/cake1.jpg' %}">
+{% endblock %}
 
 {% block content %}
 
@@ -9,7 +25,7 @@
     <div class="container-fluid bg-dark bg-img p-5 mb-5">
         <div class="row">
             <div class="col-12 text-center">
-                <h1 class="display-4 text-uppercase text-white">About Us</h1>
+                <h1 class="display-4 text-uppercase text-white">About Cake by Rimi</h1>
                 <a href="{% url 'home' %}">Home</a>
                 <i class="far fa-square text-primary px-2"></i>
                 <a href="{% url 'aboutus' %}">About us</a>

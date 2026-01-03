@@ -1,6 +1,24 @@
 {% extends 'frontend/main.html' %}
 {% load static %}
 
+{% block title %}Menu & Pricing - Cake by Rimi | Cakes, Cupcakes & Custom Desserts{% endblock %}
+
+{% block meta_description %}
+<meta name="description" content="Browse our menu & pricing for handmade cakes, cupcakes, bouquets, cookies & custom desserts in Lahore. Super soft cakes for every occasion. Order now!">
+{% endblock %}
+
+{% block meta_keywords %}
+<meta name="keywords" content="cake menu, cake prices Lahore, cupcake menu, custom cake pricing, bakery menu, dessert prices, cake by rimi menu, cake prices Pakistan">
+{% endblock %}
+
+{% block og_meta %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="Menu & Pricing - Cake by Rimi | Cakes, Cupcakes & Custom Desserts">
+<meta property="og:description" content="Browse our menu & pricing for handmade cakes, cupcakes, bouquets, cookies & custom desserts in Lahore.">
+<meta property="og:url" content="https://www.cakebyrimi.com/menu/">
+<meta property="og:image" content="https://www.cakebyrimi.com{% static 'images/cake1.jpg' %}">
+{% endblock %}
+
 {% block content %}
     {% include 'frontend/menu_partial.html' %}
 {% endblock %}

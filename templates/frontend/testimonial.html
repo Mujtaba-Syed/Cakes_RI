@@ -1,13 +1,31 @@
 {% extends 'frontend/main.html' %} 
 {% load static %} 
-{% block title %}Testimonial Page{% endblock %} 
+
+{% block title %}Customer Reviews & Testimonials - Cake by Rimi | Lahore Bakery{% endblock %}
+
+{% block meta_description %}
+<meta name="description" content="Read customer reviews & testimonials for Cake by Rimi. See what our clients say about our handmade cakes, cupcakes & custom desserts in Lahore.">
+{% endblock %}
+
+{% block meta_keywords %}
+<meta name="keywords" content="cake by rimi reviews, customer testimonials, bakery reviews Lahore, cake reviews, customer feedback, cake by rimi ratings">
+{% endblock %}
+
+{% block og_meta %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="Customer Reviews & Testimonials - Cake by Rimi | Lahore Bakery">
+<meta property="og:description" content="Read customer reviews & testimonials for Cake by Rimi. See what our clients say about our handmade cakes & desserts.">
+<meta property="og:url" content="https://www.cakebyrimi.com/testimonial/">
+<meta property="og:image" content="https://www.cakebyrimi.com{% static 'images/cake1.jpg' %}">
+{% endblock %}
+
 {% block content %}
 
     <!-- Page Header Start -->
     <div class="container-fluid bg-dark bg-img p-5 mb-5">
         <div class="row">
             <div class="col-12 text-center">
-                <h1 class="display-4 text-uppercase text-white">Testimonial</h1>
+                <h1 class="display-4 text-uppercase text-white">Customer Testimonials</h1>
                 <a href="{% url 'home' %}">Home</a>
                 <i class="far fa-square text-primary px-2"></i>
                 <a href="{% url 'testimonial' %}">Testimonial</a>
@@ -21,7 +39,7 @@
         <div class="container">
             <div class="section-title position-relative text-center mx-auto mb-5 pb-3" style="max-width: 600px;">
                 <h2 class="text-primary font-secondary">Testimonial</h2>
-                <h1 class="display-4 text-uppercase">Our Clients Say!!!</h1>
+                <h2 class="display-4 text-uppercase">Our Clients Say!!!</h2>
             </div>
 
             <div class="position-relative">
