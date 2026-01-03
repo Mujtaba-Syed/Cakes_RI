@@ -15,4 +15,6 @@ urlpatterns = [
     path('checkout/', views.CheckoutView.as_view(), name='checkout'),
     # SEO
     path('robots.txt', views.robots_txt, name='robots_txt'),
+    # Google Search Console verification
+    path('google76a61c0a0e658004.html', lambda request: views.google_verification(request, 'google76a61c0a0e658004.html'), name='google_verification'),
 ]

@@ -74,22 +74,88 @@ class RegistrationView(TemplateView):
 
 def robots_txt(request):
     """Serve robots.txt file"""
-    robots_file_path = os.path.join(settings.STATICFILES_DIRS[0], 'robots.txt')
-    try:
-        with open(robots_file_path, 'r') as f:
-            content = f.read()
-        return HttpResponse(content, content_type='text/plain')
-    except FileNotFoundError:
-        # Fallback robots.txt content
-        content = """User-agent: *
+    # Try multiple locations
+    possible_paths = []
+    
+    # Check STATIC_ROOT first (production)
+    if hasattr(settings, 'STATIC_ROOT') and settings.STATIC_ROOT:
+        possible_paths.append(os.path.join(settings.STATIC_ROOT, 'robots.txt'))
+    
+    # Check STATICFILES_DIRS
+    if hasattr(settings, 'STATICFILES_DIRS') and settings.STATICFILES_DIRS:
+        for static_dir in settings.STATICFILES_DIRS:
+            possible_paths.append(os.path.join(static_dir, 'robots.txt'))
+    
+    # Try to read from any available location
+    for robots_file_path in possible_paths:
+        try:
+            if os.path.exists(robots_file_path):
+                with open(robots_file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                response = HttpResponse(content, content_type='text/plain')
+                response['Cache-Control'] = 'public, max-age=86400'  # Cache for 1 day
+                return response
+        except (FileNotFoundError, IOError):
+            continue
+    
+    # Fallback robots.txt content if file not found
+    content = """User-agent: *
 Allow: /
+
+# Sitemap location
+Sitemap: https://www.cakebyrimi.com/sitemap.xml
+
+# Disallow admin and private areas
 Disallow: /admin/
 Disallow: /cart/
 Disallow: /checkout/
 Disallow: /registration/
-Sitemap: https://www.cakebyrimi.com/sitemap.xml
+
+# Allow important pages
+Allow: /
+Allow: /aboutus/
+Allow: /menu/
+Allow: /services/
+Allow: /testimonial/
+Allow: /contactus/
+Allow: /team/
 """
-        return HttpResponse(content, content_type='text/plain')
+    response = HttpResponse(content, content_type='text/plain')
+    response['Cache-Control'] = 'public, max-age=86400'
+    return response
+
+
+def google_verification(request, filename):
+    """
+    Serve Google Search Console verification files.
+    Files should be placed in static/ directory with name like: google76a61c0a0e658004.html
+    """
+    # Try multiple locations
+    possible_paths = []
+    
+    # Check STATIC_ROOT first (production)
+    if hasattr(settings, 'STATIC_ROOT') and settings.STATIC_ROOT:
+        possible_paths.append(os.path.join(settings.STATIC_ROOT, filename))
+    
+    # Check STATICFILES_DIRS
+    if hasattr(settings, 'STATICFILES_DIRS') and settings.STATICFILES_DIRS:
+        for static_dir in settings.STATICFILES_DIRS:
+            possible_paths.append(os.path.join(static_dir, filename))
+    
+    # Try to read from any available location
+    for file_path in possible_paths:
+        try:
+            if os.path.exists(file_path):
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                response = HttpResponse(content, content_type='text/html')
+                response['Cache-Control'] = 'public, max-age=86400'
+                return response
+        except (FileNotFoundError, IOError):
+            continue
+    
+    # Return 404 if file not found
+    return HttpResponse('File not found', status=404, content_type='text/plain')
 
 
 class AddToCartView(View):
