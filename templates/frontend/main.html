@@ -6,6 +6,24 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    {% block meta_description %}
+    <meta name="description" content="Cake by Rimi - Premium handmade cakes, cupcakes, and custom desserts in Lahore, Pakistan. Super soft and moisty cakes for birthdays, weddings, and special occasions.">
+    {% endblock %}
+    
+    {% block meta_keywords %}
+    <meta name="keywords" content="cake by rimi, cakes, cupcakes, custom cakes, birthday cakes, wedding cakes, Lahore, Pakistan, handmade cakes, bakery">
+    {% endblock %}
+    
+    <!-- Open Graph Meta Tags -->
+    {% block og_meta %}
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{% block og_title %}Cake by Rimi - Premium Handmade Cakes in Lahore{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Super soft and moisty handmade cakes, cupcakes, and custom desserts. The best cake in town for all your special occasions.{% endblock %}">
+    <meta property="og:url" content="{% block og_url %}https://www.cakebyrimi.com{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}https://www.cakebyrimi.com{% static 'images/cake1.jpg' %}{% endblock %}">
+    {% endblock %}
 
     <!-- Favicon -->
     <link href="{% static 'images/cake1.jpg' %}" rel="icon">
