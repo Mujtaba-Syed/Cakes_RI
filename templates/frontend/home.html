@@ -10,12 +10,77 @@
 <meta name="keywords" content="cake by rimi, cakes by rimi, handmade cakes, custom cakes, birthday cakes, wedding cakes, cupcakes, Lahore bakery, Pakistan cakes, super soft cakes, moisty cakes, best cake in town, custom desserts, cake delivery Lahore">
 {% endblock %}
 
+{% block canonical_url %}https://www.cakebyrimi.com/{% endblock %}
+
 {% block og_meta %}
 <meta property="og:type" content="website">
 <meta property="og:title" content="Cake by Rimi - Premium Handmade Cakes, Cupcakes & Custom Desserts in Lahore">
 <meta property="og:description" content="Super soft and moisty handmade cakes, cupcakes, and custom desserts. The best cake in town for all your special occasions. Order now for exclusive discounts!">
 <meta property="og:url" content="https://www.cakebyrimi.com">
 <meta property="og:image" content="https://www.cakebyrimi.com{% static 'images/cake1.jpg' %}">
+{% endblock %}
+
+{% block schema_org %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Cake by Rimi",
+  "url": "https://www.cakebyrimi.com",
+  "description": "Premium handmade cakes, cupcakes, and custom desserts in Lahore, Pakistan",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.cakebyrimi.com/menu/?search={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Cake by Rimi",
+  "url": "https://www.cakebyrimi.com",
+  "logo": "https://www.cakebyrimi.com{% static 'images/cake1.jpg' %}",
+  "description": "Premium handmade cakes, cupcakes, and custom desserts in Lahore, Pakistan",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Super Town",
+    "addressLocality": "Lahore",
+    "addressCountry": "Pakistan"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+92-309-481-7724",
+    "contactType": "Customer Service",
+    "email": "cakesbyrimi@gmail.com",
+    "availableLanguage": ["English", "Urdu"]
+  },
+  "sameAs": [
+    "https://www.facebook.com",
+    "https://www.twitter.com",
+    "https://www.linkedin.com"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "Cake by Rimi",
+  "image": "https://www.cakebyrimi.com{% static 'images/cake1.jpg' %}",
+  "description": "Super soft and moisty handmade cakes, cupcakes, and custom desserts. The best cake in town for birthdays, weddings, and special occasions.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Super Town",
+    "addressLocality": "Lahore",
+    "addressCountry": "PK"
+  },
+  "telephone": "+92-309-481-7724",
+  "priceRange": "$$",
+  "servesCuisine": "Desserts"
+}
+</script>
 {% endblock %}
 
 {% block content %}

@@ -4,6 +4,9 @@ from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import View, TemplateView, ListView
 from django.contrib import messages
 from django.core.serializers.json import DjangoJSONEncoder
+from django.http import HttpResponse
+from django.conf import settings
+import os
 
 # Create your views here.
 
@@ -67,6 +70,26 @@ class ContactUsView(TemplateView):
 
 class RegistrationView(TemplateView):
     template_name = 'frontend/sign.html'
+
+
+def robots_txt(request):
+    """Serve robots.txt file"""
+    robots_file_path = os.path.join(settings.STATICFILES_DIRS[0], 'robots.txt')
+    try:
+        with open(robots_file_path, 'r') as f:
+            content = f.read()
+        return HttpResponse(content, content_type='text/plain')
+    except FileNotFoundError:
+        # Fallback robots.txt content
+        content = """User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /registration/
+Sitemap: https://www.cakebyrimi.com/sitemap.xml
+"""
+        return HttpResponse(content, content_type='text/plain')
 
 
 class AddToCartView(View):

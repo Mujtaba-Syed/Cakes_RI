@@ -11,12 +11,37 @@
 <meta name="keywords" content="cake menu, cake prices Lahore, cupcake menu, custom cake pricing, bakery menu, dessert prices, cake by rimi menu, cake prices Pakistan">
 {% endblock %}
 
+{% block canonical_url %}https://www.cakebyrimi.com/menu/{% endblock %}
+
 {% block og_meta %}
 <meta property="og:type" content="website">
 <meta property="og:title" content="Menu & Pricing - Cake by Rimi | Cakes, Cupcakes & Custom Desserts">
 <meta property="og:description" content="Browse our menu & pricing for handmade cakes, cupcakes, bouquets, cookies & custom desserts in Lahore.">
 <meta property="og:url" content="https://www.cakebyrimi.com/menu/">
 <meta property="og:image" content="https://www.cakebyrimi.com{% static 'images/cake1.jpg' %}">
+{% endblock %}
+
+{% block schema_org %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.cakebyrimi.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Menu & Pricing",
+      "item": "https://www.cakebyrimi.com/menu/"
+    }
+  ]
+}
+</script>
 {% endblock %}
 
 {% block content %}

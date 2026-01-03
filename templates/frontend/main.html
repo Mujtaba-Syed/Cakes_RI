@@ -24,6 +24,12 @@
     <meta property="og:url" content="{% block og_url %}https://www.cakebyrimi.com{% endblock %}">
     <meta property="og:image" content="{% block og_image %}https://www.cakebyrimi.com{% static 'images/cake1.jpg' %}{% endblock %}">
     {% endblock %}
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{% block canonical_url %}https://www.cakebyrimi.com/{% endblock %}">
+    
+    <!-- Schema.org Structured Data -->
+    {% block schema_org %}{% endblock %}
 
     <!-- Favicon -->
     <link href="{% static 'images/cake1.jpg' %}" rel="icon">
