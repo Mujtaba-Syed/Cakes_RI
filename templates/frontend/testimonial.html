@@ -1,5 +1,5 @@
 {% extends 'frontend/main.html' %} 
-{% load static %} 
+{% load static minify_tags %} 
 
 {% block title %}Customer Reviews & Testimonials - Cake by Rimi | Lahore Bakery{% endblock %}
 
@@ -89,6 +89,6 @@
     <!-- Testimonial End -->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{% static 'js/home.js' %}"></script>
+    <script src="{% static_min 'js/home.js' %}"></script>
 
 {% endblock%}

@@ -1,4 +1,4 @@
-{% extends 'frontend/main.html' %} {% load static %} 
+{% extends 'frontend/main.html' %} {% load static minify_tags %} 
 
 {% block title %}Cake by Rimi - Premium Handmade Cakes, Cupcakes & Custom Desserts in Lahore{% endblock %}
 
@@ -302,7 +302,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
 
-<script src="{% static 'js/home.js' %}"></script>
+<script src="{% static_min 'js/home.js' %}"></script>
 
 
 {% endblock%}
