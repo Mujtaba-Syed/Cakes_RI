@@ -47,15 +47,15 @@ CSRF_TRUSTED_ORIGINS = [
     'https://www.cakebyrimi.com',
     'https://168.231.123.118',
     # Keep HTTP only for development
-] + (['http://localhost:8000', 'http://127.0.0.1:8000'] if DEBUG else [])
+] + (['http://localhost', 'http://localhost:8000', 'http://127.0.0.1', 'http://127.0.0.1:8000'] if DEBUG else [])
 
 # CSRF cookie settings for better security
-CSRF_COOKIE_SECURE = True  # Only send over HTTPS
+CSRF_COOKIE_SECURE = not DEBUG  # Only send over HTTPS in production
 # Note: CSRF_COOKIE_HTTPONLY should be False to allow JavaScript access
 CSRF_COOKIE_SAMESITE = 'Lax'
 
 # Session cookie settings
-SESSION_COOKIE_SECURE = True  # Only send over HTTPS
+SESSION_COOKIE_SECURE = not DEBUG  # Only send over HTTPS in production
 SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_SAMESITE = 'Lax'
 

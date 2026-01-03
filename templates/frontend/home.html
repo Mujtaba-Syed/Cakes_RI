@@ -1,4 +1,89 @@
-{% extends 'frontend/main.html' %} {% load static %} {% block title %}Home{% endblock %} {% block content %}
+{% extends 'frontend/main.html' %} {% load static minify_tags %} 
+
+{% block title %}Cake by Rimi - Premium Handmade Cakes, Cupcakes & Custom Desserts in Lahore{% endblock %}
+
+{% block meta_description %}
+<meta name="description" content="Cake by Rimi - Super soft handmade cakes, cupcakes & custom desserts in Lahore. Best cakes for birthdays, weddings & special occasions. Order now!">
+{% endblock %}
+
+{% block meta_keywords %}
+<meta name="keywords" content="cake by rimi, cakes by rimi, handmade cakes, custom cakes, birthday cakes, wedding cakes, cupcakes, Lahore bakery, Pakistan cakes, super soft cakes, moisty cakes, best cake in town, custom desserts, cake delivery Lahore">
+{% endblock %}
+
+{% block canonical_url %}https://www.cakebyrimi.com/{% endblock %}
+
+{% block og_meta %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cake by Rimi - Premium Handmade Cakes, Cupcakes & Custom Desserts in Lahore">
+<meta property="og:description" content="Super soft and moisty handmade cakes, cupcakes, and custom desserts. The best cake in town for all your special occasions. Order now for exclusive discounts!">
+<meta property="og:url" content="https://www.cakebyrimi.com">
+<meta property="og:image" content="https://www.cakebyrimi.com{% static 'images/cake1.jpg' %}">
+{% endblock %}
+
+{% block schema_org %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Cake by Rimi",
+  "url": "https://www.cakebyrimi.com",
+  "description": "Premium handmade cakes, cupcakes, and custom desserts in Lahore, Pakistan",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.cakebyrimi.com/menu/?search={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Cake by Rimi",
+  "url": "https://www.cakebyrimi.com",
+  "logo": "https://www.cakebyrimi.com{% static 'images/cake1.jpg' %}",
+  "description": "Premium handmade cakes, cupcakes, and custom desserts in Lahore, Pakistan",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Super Town",
+    "addressLocality": "Lahore",
+    "addressCountry": "Pakistan"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+92-309-481-7724",
+    "contactType": "Customer Service",
+    "email": "cakesbyrimi@gmail.com",
+    "availableLanguage": ["English", "Urdu"]
+  },
+  "sameAs": [
+    "https://www.facebook.com",
+    "https://www.twitter.com",
+    "https://www.linkedin.com"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "Cake by Rimi",
+  "image": "https://www.cakebyrimi.com{% static 'images/cake1.jpg' %}",
+  "description": "Super soft and moisty handmade cakes, cupcakes, and custom desserts. The best cake in town for birthdays, weddings, and special occasions.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Super Town",
+    "addressLocality": "Lahore",
+    "addressCountry": "PK"
+  },
+  "telephone": "+92-309-481-7724",
+  "priceRange": "$$",
+  "servesCuisine": "Desserts"
+}
+</script>
+{% endblock %}
+
+{% block content %}
 
 <!-- Page Header Start -->
 {% comment %}
@@ -22,9 +107,9 @@
         <div class="row justify-content-start">
             <div class="col-lg-8 text-center text-lg-start mt-3">
 
-                <h1 class="font-secondary text-primary mb-4" style="color: #bc51ee !important;" >Super soft and moisty</h1>
+                <h2 class="font-secondary text-primary mb-4" style="color: #bc51ee !important;" >Super soft and moisty</h2>
                 <h1 class="display-1 text-uppercase text-white mb-4">CakesByRimi</h1>
-                <h1 class="text-uppercase text-white">The Best Cake In Town</h1>
+                <h2 class="text-uppercase text-white">The Best Cake In Town</h2>
                 <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
                     <a href="{% url 'aboutus' %}" class="btn btn-primary border-inner py-3 px-5 me-5">Read More</a>
                     <button type="button" class="btn-play" data-bs-toggle="modal" data-bs-target="#videoModal">
@@ -103,7 +188,7 @@
                 </div>
             </div>
             <div class="col-lg-12 col-md-6 text-center">
-                <h1 class="text-uppercase text-light mb-4">Get exclusive discount on your first order</h1>
+                <h2 class="text-uppercase text-light mb-4">Get exclusive discount on your first order</h2>
                 <a href="/product/redirect-to-whatsapp/?message=Hi!  I'm interested in your delicious cakes! Can you tell me more about your menu, pricing, and delivery options? I'd love to place an order!" class="btn btn-primary border-inner py-3 px-5">Order Now</a>
             </div>
         </div>
@@ -187,7 +272,7 @@
     <div class="container">
         <div class="section-title position-relative text-center mx-auto mb-5 pb-3" style="max-width: 600px;">
             <h2 class="text-primary font-secondary">Testimonial</h2>
-            <h1 class="display-4 text-uppercase">Our Clients Say!!!</h1>
+            <h2 class="display-4 text-uppercase">Our Clients Say!!!</h2>
         </div>
 
         <div class="position-relative">
@@ -217,7 +302,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
 
-<script src="{% static 'js/home.js' %}"></script>
+<script src="{% static_min 'js/home.js' %}"></script>
 
 
 {% endblock%}
