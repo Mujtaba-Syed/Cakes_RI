@@ -27,19 +27,37 @@ SECRET_KEY = "django-insecure-&hst_m&mdwh^mmxhsw86^)buy#1ar)1xlp+j#xjicaraj#n9%6
 
 # # #run in production
 # # DEBUG = False
-DEBUG = os.environ.get('DEBUG')
-ALLOWED_HOSTS = ['168.231.123.118', 'cakebyrimi.com', 'www.cakebyrimi.com', 'localhost', '127.0.0.1', '0.0.0.0']
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-# CSRF settings
-CSRF_TRUSTED_ORIGINS = [
-    'http://cakebyrimi.com',
-    'https://cakebyrimi.com',
-    'http://www.cakebyrimi.com',
-    'https://www.cakebyrimi.com',
-
-    'http://168.231.123.118',
-    'https://168.231.123.118',
+# ALLOWED_HOSTS - support IPv4, IPv6, and domain names
+ALLOWED_HOSTS = [
+    '168.231.123.118',
+    'cakebyrimi.com',
+    'www.cakebyrimi.com',
+    'localhost',
+    '127.0.0.1',
+    '0.0.0.0',
+    # IPv6 support - Django will handle IPv6 addresses automatically
+    # but we need to allow the host without brackets when coming through proxy
 ]
+
+# CSRF settings - Only HTTPS in production
+CSRF_TRUSTED_ORIGINS = [
+    'https://cakebyrimi.com',
+    'https://www.cakebyrimi.com',
+    'https://168.231.123.118',
+    # Keep HTTP only for development
+] + (['http://localhost', 'http://localhost:8000', 'http://127.0.0.1', 'http://127.0.0.1:8000'] if DEBUG else [])
+
+# CSRF cookie settings for better security
+CSRF_COOKIE_SECURE = not DEBUG  # Only send over HTTPS in production
+# Note: CSRF_COOKIE_HTTPONLY should be False to allow JavaScript access
+CSRF_COOKIE_SAMESITE = 'Lax'
+
+# Session cookie settings
+SESSION_COOKIE_SECURE = not DEBUG  # Only send over HTTPS in production
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SAMESITE = 'Lax'
 
 
 # Application definition
@@ -61,13 +79,24 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "ecommerce.middleware.IPv6HostMiddleware",  # Handle IPv6 addresses
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "ecommerce.middleware.SecurityHeadersMiddleware",  # Additional security headers
 ]
+
+# Security settings
+if not DEBUG:
+    SECURE_SSL_REDIRECT = True
+    SECURE_HSTS_SECONDS = 31536000  # 1 year
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    # Tell Django it's behind an HTTPS proxy (nginx)
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ROOT_URLCONF = "ecommerce.urls"
 
@@ -166,7 +195,43 @@ STATICFILES_DIRS = [
 # Media files (user uploaded content)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Logging configuration to reduce noise from bot/scanner requests
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        },
+    },
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'django.security.DisallowedHost': {
+            'handlers': ['console'],
+            'level': 'WARNING',  # Reduce noise from bot requests
+            'propagate': False,
+        },
+        'django.request': {
+            'handlers': ['console'],
+            'level': 'ERROR',  # Only log errors, not 404s from bots
+            'propagate': False,
+        },
+    },
+}
