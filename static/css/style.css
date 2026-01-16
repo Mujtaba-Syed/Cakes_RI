@@ -217,11 +217,46 @@ h6 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.row {
-    display: flex;
-    justify-content: space-between;
+
+
+/* Force Bootstrap grid to work properly */
+.tab-content .row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin-right: calc(var(--bs-gutter-x) / -2) !important;
+    margin-left: calc(var(--bs-gutter-x) / -2) !important;
 }
 
+.tab-content .row > * {
+    flex-shrink: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-right: calc(var(--bs-gutter-x) / 2) !important;
+    padding-left: calc(var(--bs-gutter-x) / 2) !important;
+    margin-top: var(--bs-gutter-y) !important;
+}
+
+/* Responsive column classes */
+@media (min-width: 576px) {
+    .tab-content .col-sm-6 {
+        flex: 0 0 auto !important;
+        width: 50% !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .tab-content .col-md-4 {
+        flex: 0 0 auto !important;
+        width: 33.33333% !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .tab-content .col-lg-3 {
+        flex: 0 0 auto !important;
+        width: 25% !important;
+    }
+}
 
 /* footer styling  */
 

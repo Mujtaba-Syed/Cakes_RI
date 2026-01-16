@@ -1,5 +1,5 @@
-{% extends 'frontend/main.html' %} {% load static %} {% block title %}Cart{% endblock %} {% block content %}
-<link rel="stylesheet" href="{% static 'css/frontend/css/cart.css' %}">
+{% extends 'frontend/main.html' %} {% load static minify_tags %} {% block title %}Cart{% endblock %} {% block content %}
+<link rel="stylesheet" href="{% static_min 'css/frontend/css/cart.css' %}">
 <div class="container" style="background-color:#c38edb11; border-radius:10px;">
     <div class="row cart-main-content">
         <div class="breadcrum">

@@ -3,7 +3,7 @@ from .models import *
 # Register your models here.
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'category', 'is_active')
+    list_display = ('id', 'name', 'price', 'category', 'is_active','updated_at')
     list_filter = ('category', 'is_active')
 admin.site.register(UserProfile)
 # admin.site.register(Customer)

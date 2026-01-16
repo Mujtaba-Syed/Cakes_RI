@@ -1,4 +1,4 @@
-<!DOCTYPE html> {% load static %}
+<!DOCTYPE html> {% load static minify_tags %}
 <html lang="en">
 
 <head>
@@ -6,6 +6,30 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    {% block meta_description %}
+    <meta name="description" content="Cake by Rimi - Premium handmade cakes, cupcakes, and custom desserts in Lahore, Pakistan. Super soft and moisty cakes for birthdays, weddings, and special occasions.">
+    {% endblock %}
+    
+    {% block meta_keywords %}
+    <meta name="keywords" content="cake by rimi, cakes, cupcakes, custom cakes, birthday cakes, wedding cakes, Lahore, Pakistan, handmade cakes, bakery">
+    {% endblock %}
+    
+    <!-- Open Graph Meta Tags -->
+    {% block og_meta %}
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{% block og_title %}Cake by Rimi - Premium Handmade Cakes in Lahore{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Super soft and moisty handmade cakes, cupcakes, and custom desserts. The best cake in town for all your special occasions.{% endblock %}">
+    <meta property="og:url" content="{% block og_url %}https://www.cakebyrimi.com{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}https://www.cakebyrimi.com{% static 'images/cake1.jpg' %}{% endblock %}">
+    {% endblock %}
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{% block canonical_url %}https://www.cakebyrimi.com/{% endblock %}">
+    
+    <!-- Schema.org Structured Data -->
+    {% block schema_org %}{% endblock %}
 
     <!-- Favicon -->
     <link href="{% static 'images/cake1.jpg' %}" rel="icon">
@@ -21,13 +45,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href={% static 'lib/owlcarousel/assets/owl.carousel.min.css' %} rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{% static 'css/frontend/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/frontend/css/festyle.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static_min 'css/frontend/css/festyle.css' %}">
 
 </head>
 
@@ -47,7 +71,7 @@
             <div class="col-lg-4 text-center bg-primary border-inner py-3" style="background-color: #c38edb !important;">
                 <div class="d-inline-flex align-items-center justify-content-center">
                     <a href="{% url 'home'%}" class="navbar-brand" >
-                        <h1 class="m-0 text-uppercase text-white"><i class="fa fa-birthday-cake fs-1 text-dark me-3"></i>Cake by Rimi</h1>
+                        <div class="m-0 text-uppercase text-white" style="font-size: 1.5rem; font-weight: 700;"><i class="fa fa-birthday-cake fs-1 text-dark me-3"></i>Cake by Rimi</div>
                     </a>
                 </div>
             </div>
@@ -68,7 +92,7 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow-sm py-3 py-lg-0 px-3 px-lg-0 sticky-top">
         <a href="{% url 'home'%}" class="navbar-brand d-block d-lg-none">
-            <h1 class="m-0 text-uppercase text-white"><i class="fa fa-birthday-cake fs-1 text-primary me-3"></i>Cake by Rimi</h1>
+            <div class="m-0 text-uppercase text-white" style="font-size: 1.5rem; font-weight: 700;"><i class="fa fa-birthday-cake fs-1 text-primary me-3"></i>Cake by Rimi</div>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -109,7 +133,7 @@
                 <div class="col-lg-4 col-md-6 mt-lg-n5">
                     <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 bg-primary border-inner p-4">
                         <a href="{% url 'home' %}" class="navbar-brand">
-                            <h1 class="m-0 text-uppercase text-white"><i class="fa fa-birthday-cake fs-1 text-dark me-3"></i>Cake by Rimi</h1>
+                            <div class="m-0 text-uppercase text-white" style="font-size: 1.5rem; font-weight: 700;"><i class="fa fa-birthday-cake fs-1 text-dark me-3"></i>Cake by Rimi</div>
                         </a>
                         <p class="mt-3">Indulge in the art of sweetness with Cake by Rimi. Elevate your celebrations with our meticulously crafted cakes, where every bite is a journey of flavors and memories. Thank you for making us a part of your special moments. – Cake by Rimi</p>
                     </div>
@@ -182,7 +206,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="{% static "js/frontend/main.js" %}"></script>
+    <script src="{% static_min 'js/frontend/main.js' %}"></script>
 </body>
 
 </html>

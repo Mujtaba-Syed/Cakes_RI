@@ -1,13 +1,56 @@
 {% extends 'frontend/main.html' %} 
 {% load static %} 
-{% block title %}Our Team{% endblock %} 
+
+{% block title %}Our Team - Master Chefs at Cake by Rimi | Lahore Bakery{% endblock %}
+
+{% block meta_description %}
+<meta name="description" content="Meet our master chefs at Cake by Rimi. Expert bakers crafting handmade cakes, cupcakes & custom desserts in Lahore with passion & creativity.">
+{% endblock %}
+
+{% block meta_keywords %}
+<meta name="keywords" content="cake by rimi team, master chefs, bakers Lahore, cake makers, bakery team, professional bakers Pakistan">
+{% endblock %}
+
+{% block canonical_url %}https://www.cakebyrimi.com/team/{% endblock %}
+
+{% block og_meta %}
+<meta property="og:type" content="website">
+<meta property="og:title" content="Our Team - Master Chefs at Cake by Rimi | Lahore Bakery">
+<meta property="og:description" content="Meet our master chefs at Cake by Rimi. Expert bakers crafting handmade cakes & custom desserts in Lahore.">
+<meta property="og:url" content="https://www.cakebyrimi.com/team/">
+<meta property="og:image" content="https://www.cakebyrimi.com{% static 'images/cake1.jpg' %}">
+{% endblock %}
+
+{% block schema_org %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.cakebyrimi.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Our Team",
+      "item": "https://www.cakebyrimi.com/team/"
+    }
+  ]
+}
+</script>
+{% endblock %}
+
 {% block content %}
 
     <!-- Page Header Start -->
     <div class="container-fluid bg-dark bg-img p-5 mb-5">
         <div class="row">
             <div class="col-12 text-center">
-                <h1 class="display-4 text-uppercase text-white">Our Team</h1>
+                <h1 class="display-4 text-uppercase text-white">Our Master Chefs</h1>
                 <a href="{% url 'home' %}">Home</a>
                 <i class="far fa-square text-primary px-2"></i>
                 <a href="{% url 'team' %}">Our Team</a>
@@ -22,7 +65,7 @@
         <div class="container">
             <div class="section-title position-relative text-center mx-auto mb-5 pb-3" style="max-width: 600px;">
                 <h2 class="text-primary font-secondary">Team Members</h2>
-                <h1 class="display-4 text-uppercase">Our Master Chefs</h1>
+                <h2 class="display-4 text-uppercase">Meet Our Expert Bakers</h2>
             </div>
             <div class="row g-5">
                 <div class="col-lg-4 col-md-6">
