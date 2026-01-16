@@ -5,6 +5,7 @@ from .serializers import GetAllProductSerializers
 from base.models import Product
 from rest_framework.response import Response
 from django.http import HttpRequest
+from django.db.models import Q
 # Create your views here.
 
 
@@ -18,6 +19,38 @@ class GetAllProductsView(APIView):
             products = Product.objects.filter(is_active=True).order_by('-updated_at')
         serializer = GetAllProductSerializers(products, many=True)
         return Response(serializer.data)
+
+
+class SearchProductsView(APIView):
+    serializer_class = GetAllProductSerializers
+    
+    def get(self, request):
+        query = request.query_params.get('q', '').strip()
+        category = request.query_params.get('category', None)
+        
+        if not query:
+            return Response({'success': False, 'message': 'Search query is required'}, status=400)
+        
+        # Search in both name and description fields
+        search_filter = Q(name__icontains=query) | Q(description__icontains=query)
+        
+        # Add category filter if specified
+        if category:
+            search_filter &= Q(category=category)
+        
+        products = Product.objects.filter(
+            search_filter,
+            is_active=True
+        ).order_by('-updated_at')
+        
+        serializer = GetAllProductSerializers(products, many=True)
+        
+        return Response({
+            'success': True,
+            'data': serializer.data,
+            'query': query,
+            'count': products.count()
+        })
     
     
 class RedirectToWhatsAppView(View):

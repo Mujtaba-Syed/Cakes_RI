@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.cakebyrimi.com/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /registration/
+
+# Allow important pages
+Allow: /
+Allow: /aboutus/
+Allow: /menu/
+Allow: /services/
+Allow: /testimonial/
+Allow: /contactus/
+Allow: /team/
+
